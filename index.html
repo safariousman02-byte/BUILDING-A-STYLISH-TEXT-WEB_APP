@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glyph & Silk</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts for the different font styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400;700&family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <!-- HEADER -->
+      <header class="header">
+        <div class="header-left">
+          <div class="logo">TT</div>
+          <div>
+            <h1>Glyph & Silk</h1>
+            <p>v2.4 Live</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <button class="theme-btn">☾</button>
+          <div class="avatar">O</div>
+        </div>
+      </header>
+
+      <!-- INPUT SECTION -->
+      <div class="input-section">
+        <div class="label-row">
+          <span>✏️ Type your phrase...</span>
+          <div class="icons">📋 ⚙️ 🕐</div>
+        </div>
+        <div class="input-box">Ethereal moments in morning light ✨</div>
+        <div class="formatting-row">
+          <button class="as-btn">As-<br />is</button>
+          <button>UPPER</button>
+          <button>lower</button>
+          <button>Title</button>
+          <button><b>B</b></button>
+          <button><i>I</i></button>
+          <button><u>U</u></button>
+        </div>
+      </div>
+
+      <!-- DIMENSIONS & SPACING -->
+      <div class="card dimensions-card">
+        <div class="card-header">
+          <span>📐 Dimensions & Spacing</span>
+          <span class="tap-copy">↗ Tap copy</span>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Glyph Size</span>
+            <span>20px</span>
+          </div>
+          <input type="range" min="10" max="40" value="20" class="slider" />
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Kerning / Spacing</span>
+            <span>+2.0px</span>
+          </div>
+          <input type="range" min="-5" max="10" value="2" class="slider" />
+        </div>
+
+        <div class="button-row">
+          <button class="copy-all-btn">📋 Copy All (7 Styles)</button>
+          <button class="auto-sync-btn">🔗 Auto-sync Disabled</button>
+        </div>
+      </div>
+
+      <!-- FILTER TABS -->
+      <div class="filter-tabs">
+        <button class="active">All (48)</button>
+        <button>Serif & Bookish</button>
+        <button>Minimal Sans</button>
+        <button>Script &...</button>
+      </div>
+
+      <!-- FONT CARD 1: Editorial Serif -->
+      <div class="font-card">
+        <div class="font-card-header">
+          <div class="font-title">
+            <span class="dot"></span> Editorial Serif
+          </div>
+          <div class="font-meta">Claude: Bookish & Book</div>
+          <div class="font-actions">
+            <button>⬇</button>
+            <button>♡</button>
+          </div>
+        </div>
+        <div class="font-preview editorial-serif">
+          Ethereal moments in<br />morning light ✨
+        </div>
+        <div class="font-footer">
+          <span>Uncode Elegant Italic Serif</span>
+          <button>📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- FONT CARD 2: Silk Monospace -->
+      <div class="font-card">
+        <div class="font-card-header">
+          <div class="font-title"><span class="dot"></span> Silk Monospace</div>
+          <div class="font-meta">Typewriter Matrix</div>
+          <div class="font-actions">
+            <button>♡</button>
+          </div>
+        </div>
+        <div class="font-preview silk-monospace">
+          Ethereal moments<br />in morning light ✨
+        </div>
+        <div class="font-footer">
+          <span>Fixed Pitch Unicode glyphs</span>
+          <button>📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- FONT CARD 3: Whispering Script -->
+      <div class="font-card">
+        <div class="font-card-header">
+          <div class="font-title">
+            <span class="dot"></span> Whispering Script
+          </div>
+          <div class="font-meta">Handwritten Flow</div>
+          <div class="font-actions">
+            <button>♡</button>
+          </div>
+        </div>
+        <div class="font-preview whispering-script">
+          Ethereal moments in<br />morning light ✨
+        </div>
+        <div class="font-footer">
+          <span>Cursive ligature feel</span>
+          <button>📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- FONT CARD 4: Small Caps Spaced -->
+      <div class="font-card">
+        <div class="font-card-header">
+          <div class="font-title">
+            <span class="dot"></span> Small Caps Spaced
+          </div>
+          <div class="font-meta">Gallery Plaque</div>
+          <div class="font-actions">
+            <button>♡</button>
+          </div>
+        </div>
+        <div class="font-preview small-caps-spaced">
+          ETHEREAL MOMENTS IN<br />MORNING LIGHT ✨
+        </div>
+        <div class="font-footer">
+          <span>Museum caption architecture</span>
+          <button>📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- FONT CARD 5: Circled Minimal -->
+      <div class="font-card">
+        <div class="font-card-header">
+          <div class="font-title">
+            <span class="dot"></span> Circled Minimal
+          </div>
+          <div class="font-meta">Bubble Unicode</div>
+          <div class="font-actions">
+            <button>♡</button>
+          </div>
+        </div>
+        <div class="font-preview circled-minimal">
+          Ⓔⓣⓗⓔⓡⓔⓐⓛ ⓜⓞⓜⓔⓝⓣⓢ<br />ⓘⓝ ⓜⓞⓡⓝⓘⓝⓖ ⓛⓘⓖⓗⓣ ✨
+        </div>
+        <div class="font-footer">
+          <span>Soft pill encasement</span>
+          <button>📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- FONT CARD 6: Fraktur Archival -->
+      <div class="font-card">
+        <div class="font-card-header">
+          <div class="font-title">
+            <span class="dot"></span> Fraktur Archival
+          </div>
+          <div class="font-meta">Gothic Manuscript</div>
+          <div class="font-actions">
+            <button>♡</button>
+          </div>
+        </div>
+        <div class="font-preview fraktur-archival">
+          Ethereal moments in morning<br />light ✨
+        </div>
+        <div class="font-footer">
+          <span>Archival illuminated blackletter</span>
+          <button>📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- FONT CARD 7: Double Struck Open -->
+      <div class="font-card">
+        <div class="font-card-header">
+          <div class="font-title">
+            <span class="dot"></span> Double Struck Open
+          </div>
+          <div class="font-meta">Blackboard Math</div>
+          <div class="font-actions">
+            <button>♡</button>
+          </div>
+        </div>
+        <div class="font-preview double-struck">
+          Ethereal moments in<br />morning light ✨
+        </div>
+        <div class="font-footer">
+          <span>Geometric blackboard hollow</span>
+          <button>📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- BOTTOM TIP -->
+      <div class="bottom-tip">
+        📋 Tap Copy for direct clipboard sync • Tap Heart to save
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav">
+        <div class="nav-item active">
+          <span>TT</span>
+          <p>Fonts</p>
+        </div>
+        <div class="nav-item">
+          <span>✳️</span>
+          <p>Color & FX</p>
+        </div>
+        <div class="nav-item">
+          <span>📚</span>
+          <p>Collection</p>
+        </div>
+        <div class="nav-item">
+          <span>⬇️</span>
+          <p>Export</p>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
