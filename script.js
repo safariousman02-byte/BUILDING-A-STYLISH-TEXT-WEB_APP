@@ -27,32 +27,31 @@ inputBx.addEventListener("keydown", (e) => {
 function createFontCard(text) {
   console.log("drive: ", text);
 
-  const tile = document.createElement("div");
-
-  tile.className = "font-card";
-
-  tile.innerHTML = `
-    
-    <div class="font-card">
-        <div class="font-card-header">
-            <div class="font-title">
-                <span class="dot"></span> Editorial Serif
+  styles.forEach((style) => {
+    const tile = document.createElement("div");
+    tile.className = "font-card";
+    tile.innerHTML = `
+        <div class="font-card">
+            <div class="font-card-header">
+                <div class="font-title">
+                    <span class="dot"></span> Editorial Serif
+                </div>
+                <div class="font-meta">Claude: Bookish & Book</div>
+                <div class="font-actions">
+                    <button>⬇</button>
+                    <button>♡</button>
+                </div>
             </div>
-            <div class="font-meta">Claude: Bookish & Book</div>
-            <div class="font-actions">
-                <button>⬇</button>
-                <button>♡</button>
+            <div class="font-preview ${style}">
+                ${text}
             </div>
-        </div>
-        <div class="font-preview editorial-serif">
-            ${text}
-        </div>
-        <div class="font-footer">
-            <span>Uncode Elegant Italic Serif</span>
-            <button>📋 Copy</button>
-        </div>
-    </div> 
- `;
+            <div class="font-footer">
+                <span>Uncode Elegant Italic Serif</span>
+                <button>📋 Copy</button>
+            </div>
+        </div> 
+    `;
 
-  fontList.appendChild(tile);
+    fontList.appendChild(tile);
+  });
 }
