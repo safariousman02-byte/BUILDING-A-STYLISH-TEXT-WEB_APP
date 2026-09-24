@@ -86,6 +86,10 @@ body {
   gap: 10px;
 }
 
+.material-symbols-outlined {
+  font-size: 16px;
+}
+
 .logo {
   width: 40px;
   height: 40px;
@@ -211,7 +215,8 @@ body {
 .card {
   background: var(--card);
   border-radius: 20px;
-  padding: ipx solid var(--border);
+  padding: 20px;
+  border: 1px solid var(--border);
   margin-bottom: 14px;
   box-shadow: var(--shadow);
 }
@@ -466,9 +471,9 @@ body {
   background: var(--card);
   border: 1px solid var(--border);
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0, 0.06);
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px 16px 16px 16px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 5px 5px 5px 5px;
 }
 
 .nav-item {
@@ -476,13 +481,14 @@ body {
   padding: 8px;
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .nav-item span {
   font-size: 18px;
   display: block;
   margin-bottom: 4px;
-  color: #666;
+  color: var(--accent);
 }
 
 .nav-item p {
@@ -490,16 +496,20 @@ body {
   color: #666;
   font-weight: 500;
 }
-
-.nav-item.active p,
-.nav-item.active span {
+.nav-item:hover {
+  background: var(--accent-soft);
   color: var(--accent);
 }
 
-.nav-item.active span {
+.nav-item p,
+.nav-item span :hover {
+  color: var(--accent);
+}
+
+.nav-item span :hover {
   color: #a78bfa;
 }
 
-.nav-item.active {
+.nav-item :hover {
   background: var(--accent-soft);
 }
