@@ -1,3 +1,55 @@
+/* DEFAULT (Light theme) */
+:root {
+  /* Backgrounds */
+  --bg: #eef0f5;
+  --card: #ffffff;
+  --input-bg: #f5f6fa;
+  --font-preview-bg: #f5f6fa;
+
+  /* Text */
+  --text: #1a1a1a;
+  --subtext: #888;
+  --muted: #999;
+
+  /* Borders & Accents */
+  --border: #e8eaf0;
+  --accent: #7c3aed;
+  --accent-soft: #f0edff;
+  --dot: #7c3aed;
+
+  /* Buttons */
+  --btn-bg: #ffffff;
+  --btn-text: #666;
+  --btn-active-bg: #7c3aed;
+  --btn-active-text: #ffffff;
+
+  /* Shadows */
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* DARK theme */
+[data-theme="dark"] {
+  --bg: #1a1a24;
+  --card: #2a2a3a;
+  --input-bg: #1e1e2a;
+  --font-preview-bg: #1e1e2a;
+
+  --text: #e0e0e0;
+  --subtext: #888;
+  --muted: #666;
+
+  --border: #333;
+  --accent: #a78bfa;
+  --accent-soft: #1e1e2a;
+  --dot: #a78bfa;
+
+  --btn-bg: #1e1e2a;
+  --btn-text: #a0a0b0;
+  --btn-active-bg: #7c3aed;
+  --btn-active-text: #fff;
+
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
 /* RESET */
 * {
   margin: 0;
@@ -6,8 +58,8 @@
 }
 
 body {
-  background: #1a1a24;
-  color: #e0e0e0;
+  background: var(--bg);
+  color: var(--text);
   font-family: "Inter", sans-serif;
   min-height: 100vh;
   display: flex;
@@ -68,9 +120,9 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: none;
-  background: #2a2a3a;
-  color: #a78bfa;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
   font-size: 18px;
   cursor: pointer;
 }
@@ -90,8 +142,10 @@ body {
 
 /* INPUT SECTION */
 .input-section {
-  background: #2a2a3a;
-  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
   padding: 14px;
   margin-bottom: 14px;
 }
@@ -114,11 +168,12 @@ body {
 
 .input-box {
   width: 100%;
-  background: #1e1e2a;
-  border-radius: 10px;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   padding: 14px;
   font-size: 14px;
-  color: #e0e0e0;
+  color: var(--text);
   margin-bottom: 12px;
   border: 1px solid #333;
 }
@@ -154,10 +209,11 @@ body {
 
 /* DIMENSIONS CARD */
 .card {
-  background: #2a2a3a;
-  border-radius: 16px;
-  padding: 14px;
+  background: var(--card);
+  border-radius: 20px;
+  padding: ipx solid var(--border);
   margin-bottom: 14px;
+  box-shadow: var(--shadow);
 }
 
 .card-header {
@@ -246,9 +302,9 @@ body {
 
 .filter-tabs button {
   white-space: nowrap;
-  background: #2a2a3a;
-  border: 1px solid #333;
-  color: #a0a0b0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--muted);
   padding: 8px 14px;
   border-radius: 20px;
   font-size: 11px;
@@ -256,16 +312,18 @@ body {
 }
 
 .filter-tabs button.active {
-  background: #7c3aed;
+  background: var(--accent);
   color: #fff;
-  border-color: #7c3aed;
+  border-color: var(--accent);
 }
 
 /* FONT CARDS */
 .font-card {
-  background: #2a2a3a;
+  background: var(--card);
   border-radius: 16px;
-  padding: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 20px;
   margin-bottom: 14px;
 }
 
@@ -314,12 +372,13 @@ body {
 }
 
 .font-preview {
-  background: #1e1e2a;
-  border-radius: 10px;
+  background: var(--font-preview-bg);
+  border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
   font-size: 18px;
-  color: #e0e0e0;
+  color: var(--text);
+  border: 1px solid var(--border);
   text-align: center;
   line-height: 1.5;
   min-height: 80px;
@@ -377,10 +436,11 @@ body {
 }
 
 .font-footer button {
-  background: #1e1e2a;
+  background: var(--card);
   border: 1px solid #333;
-  color: #a78bfa;
+  color: var(--accent);
   padding: 6px 12px;
+  border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 10px;
   cursor: pointer;
@@ -403,7 +463,9 @@ body {
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: #2a2a3a;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0, 0.06);
   border-radius: 16px 16px 0 0;
   padding: 10px;
   margin-bottom: 10px;
@@ -429,9 +491,9 @@ body {
   font-weight: 500;
 }
 
-.nav-item.active p {
-  color: #a78bfa;
-  font-weight: 700;
+.nav-item.active p,
+.nav-item.active span {
+  color: var(--accent);
 }
 
 .nav-item.active span {
@@ -439,5 +501,5 @@ body {
 }
 
 .nav-item.active {
-  background: #1e1e2a;
+  background: var(--accent-soft);
 }
