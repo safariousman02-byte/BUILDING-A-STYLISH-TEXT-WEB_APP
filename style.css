@@ -88,6 +88,10 @@ body {
 
 .material-symbols-outlined {
   font-size: 16px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .logo {
@@ -453,10 +457,22 @@ body {
 
 /* BOTTOM TIP */
 .bottom-tip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  margin: 16px auto;
+  max-width: 380px;
+  background: var(--card);
   text-align: center;
   font-size: 10px;
-  color: #666;
-  margin-bottom: 16px;
+  color: var(--subtext);
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 11px;
 }
 
 /* BOTTOM NAV */
@@ -473,7 +489,7 @@ body {
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0, 0.06);
   border-radius: 16px 16px 16px 16px;
   padding: 10px;
-  margin: 5px 5px 5px 5px;
+  margin: 16px 16px 16px 16px;
 }
 
 .nav-item {
