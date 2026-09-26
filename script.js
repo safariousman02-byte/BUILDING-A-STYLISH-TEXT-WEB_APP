@@ -72,3 +72,18 @@ themeToggle.addEventListener("click", () => {
   themeToggle.textContent = next === "dark" ? "☾" : "☀";
   localStorage.setItem("theme", next);
 });
+
+const buttons = document.querySelectorAll(".formatting-row");
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const btnId = e.target.id;
+
+    if (btnId === c) {
+        inputBx.textContent = '';
+    
+    }
+
+    console.log(btnId);
+  });
+});

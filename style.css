@@ -198,13 +198,19 @@ body {
 }
 
 .formatting-row button {
-  background: #1e1e2a;
-  border: 1px solid #333;
+  background: var(--bg);
+  border: 1px solid var(--border);
   color: #a0a0b0;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 11px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
   cursor: pointer;
+}
+
+.formatting-row button:hover {
+  background: var(--accent);
+  color: var(--accent-soft);
+  border-color: var(--btn-text);
 }
 
 .formatting-row .as-btn {
