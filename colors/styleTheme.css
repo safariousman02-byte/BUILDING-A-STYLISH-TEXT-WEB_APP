@@ -1,0 +1,623 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f0f17;
+  color: #e0e0e0;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.app {
+  width: 100%;
+  max-width: 430px;
+  padding-bottom: 100px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background: #1e1e2a;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #a78bfa;
+  font-size: 14px;
+}
+
+.header h1 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.header p {
+  font-size: 10px;
+  color: #888;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #1e1e2a;
+  color: #a78bfa;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #a78bfa, #7c3aed);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* SECTION HEADERS */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #a78bfa;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+  margin-top: 18px;
+  text-transform: uppercase;
+}
+
+.section-header .link {
+  color: #818cf8;
+  font-size: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.section-header .sub {
+  color: #666;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* RECIPE TABS */
+.recipe-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.recipe-tabs button {
+  white-space: nowrap;
+  background: #1e1e2a;
+  border: 1px solid #2a2a3a;
+  color: #a0a0b0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recipe-tabs button.active {
+  background: #2a2a3a;
+  color: #fff;
+  border-color: #818cf8;
+}
+
+/* PREVIEW CARD */
+.preview-card {
+  background: #1a1a24;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 8px;
+  border: 1px solid #2a2a3a;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(129, 140, 248, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(circle at 70% 60%, rgba(244, 63, 94, 0.1), transparent 60%);
+  pointer-events: none;
+}
+
+.preview-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+}
+
+.badge {
+  background: #2a2a3a;
+  color: #a0a0b0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 600;
+  border: 1px solid #333;
+}
+
+.badge.green {
+  color: #34d399;
+  border-color: #065f46;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.badge.small {
+  font-size: 8px;
+  padding: 3px 8px;
+}
+
+.preview-icons {
+  display: flex;
+  gap: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.preview-text {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, #f43f5e, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.preview-meta {
+  text-align: center;
+  font-size: 10px;
+  color: #888;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.color-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #2a2a3a;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #a0a0b0;
+  font-family: "Fira Code", monospace;
+}
+
+.color-chip .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.tap-edit {
+  font-size: 10px;
+  color: #666;
+}
+
+/* CARD */
+.card {
+  background: #1a1a24;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #2a2a3a;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 12px;
+}
+
+.hex {
+  font-family: "Fira Code", monospace;
+  font-size: 10px;
+  color: #818cf8;
+}
+
+.card-sub {
+  font-size: 10px;
+  color: #666;
+  margin-top: -8px;
+  margin-bottom: 12px;
+}
+
+/* SWATCHES */
+.swatches {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease;
+}
+
+.swatch:hover {
+  transform: scale(1.1);
+}
+
+.swatch.add {
+  background: #2a2a3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 14px;
+}
+
+/* TONE ROW */
+.tone-row {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.tone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.tone .circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #2a2a3a;
+}
+
+.tone span {
+  font-size: 9px;
+  color: #888;
+}
+
+/* TOGGLE */
+.toggle {
+  width: 44px;
+  height: 24px;
+  background: #333;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+.toggle.on {
+  background: #818cf8;
+}
+
+.toggle.on::after {
+  left: 22px;
+}
+
+/* GRADIENT ROW */
+.gradient-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.gradient-pill {
+  flex: 1;
+  text-align: center;
+  padding: 10px 6px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* SLIDER */
+.slider-group {
+  margin-bottom: 14px;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #a0a0b0;
+  margin-bottom: 8px;
+}
+
+.slider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #2a2a3a;
+  border-radius: 4px;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #818cf8;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(129, 140, 248, 0.5);
+}
+
+/* EXTRUSION GRID */
+.extrusion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.extrusion-item {
+  background: #1e1e2a;
+  border: 1px solid #2a2a3a;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.extrusion-item.active {
+  border-color: #818cf8;
+  background: rgba(129, 140, 248, 0.08);
+}
+
+.extrusion-item .icon {
+  font-size: 18px;
+  color: #818cf8;
+}
+
+.extrusion-item strong {
+  font-size: 11px;
+  color: #e0e0e0;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.extrusion-item p {
+  font-size: 9px;
+  color: #666;
+}
+
+/* SILHOUETTE TABS */
+.silhouette-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.silhouette-tabs button {
+  white-space: nowrap;
+  background: #1e1e2a;
+  border: 1px solid #2a2a3a;
+  color: #a0a0b0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+
+.silhouette-tabs button.active {
+  background: #818cf8;
+  color: #fff;
+  border-color: #818cf8;
+}
+
+/* BOTTOM BUTTONS */
+.apply-btn {
+  width: 100%;
+  background: transparent;
+  border: 2px solid #818cf8;
+  color: #818cf8;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 12px;
+  margin-top: 8px;
+}
+
+.bottom-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.save-btn {
+  flex: 1;
+  background: #1e1e2a;
+  border: 1px solid #2a2a3a;
+  color: #e0e0e0;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.reset-btn {
+  flex: 1;
+  background: #1e1e2a;
+  border: 1px solid #2a2a3a;
+  color: #a0a0b0;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #1a1a24;
+  border-radius: 16px 16px 0 0;
+  padding: 10px;
+  z-index: 100;
+  border-top: 1px solid #2a2a3a;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  text-align: center;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.nav-item span {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+.nav-item p {
+  font-size: 10px;
+  color: #666;
+  font-weight: 500;
+}
+
+.nav-item.active {
+  background: #1e1e2a;
+}
+
+.nav-item.active span,
+.nav-item.active p {
+  color: #818cf8;
+}
+
+.nav-item:hover {
+  background: #1e1e2a;
+  transform: translateY(-2px);
+}

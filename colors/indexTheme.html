@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glyph & Silk - Color & FX</title>
+    <link rel="stylesheet" href="/colors/styleTheme.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <!-- HEADER -->
+      <header class="header">
+        <div class="header-left">
+          <div class="logo">TT</div>
+          <div>
+            <h1>Glyph & Silk</h1>
+            <p>v2.4 Live</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <button class="theme-btn">☾</button>
+          <div class="avatar">O</div>
+        </div>
+      </header>
+
+      <!-- ONE-TAP RECIPES -->
+      <div class="section-header">
+        <span>✨ ONE-TAP RECIPES</span>
+        <span class="link">Curated FX</span>
+      </div>
+      <div class="recipe-tabs">
+        <button class="active">Editorial Paper</button>
+        <button>Silk Sunset</button>
+        <button>Aurora Glow</button>
+      </div>
+
+      <!-- PREVIEW CARD -->
+      <div class="preview-card">
+        <div class="preview-top">
+          <div class="badges">
+            <span class="badge green">● AAA 12.8:1</span>
+            <span class="badge">Extruded Pill</span>
+          </div>
+          <div class="preview-icons">
+            <span>🔍</span>
+            <span>📋</span>
+          </div>
+        </div>
+        <div class="preview-text">
+          Ethereal moments in<br />morning light ✨
+        </div>
+        <p class="preview-meta">64px / Display Serif · Optical Kern</p>
+        <div class="preview-footer">
+          <div class="color-chip">
+            <span class="dot" style="background: #818cf8"></span> #818CF8
+          </div>
+          <span class="tap-edit">✎ Tap text to edit</span>
+        </div>
+      </div>
+
+      <!-- COLOR ARCHITECTURE -->
+      <div class="section-header">
+        <span>🎨 COLOR ARCHITECTURE</span>
+        <span class="sub">RGB / Display P3</span>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span>Glyph Core Pigment</span>
+          <span class="hex">HEX #818CF8</span>
+        </div>
+        <div class="swatches">
+          <div class="swatch" style="background: #ffffff"></div>
+          <div class="swatch" style="background: #818cf8"></div>
+          <div class="swatch" style="background: #f43f5e"></div>
+          <div class="swatch" style="background: #10b981"></div>
+          <div class="swatch" style="background: #a855f7"></div>
+          <div class="swatch add">✎</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>Specimen Stage Tone</span>
+          <span class="badge green small">Optimal Contrast</span>
+        </div>
+        <p class="card-sub">Dark tactile stage presets</p>
+        <div class="tone-row">
+          <div class="tone">
+            <div
+              class="circle"
+              style="background: #1a1a24; border: 2px solid #333"
+            ></div>
+            <span>Silk</span>
+          </div>
+          <div class="tone">
+            <div class="circle" style="background: #2a2a3a"></div>
+            <span>Clay</span>
+          </div>
+          <div class="tone">
+            <div class="circle" style="background: #3b2a4a"></div>
+            <span>Lilac</span>
+          </div>
+          <div class="tone">
+            <div class="circle" style="background: #1a3a2a"></div>
+            <span>Mint</span>
+          </div>
+          <div class="tone">
+            <div class="circle" style="background: #1a1a2a"></div>
+            <span>Slate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TACTILE SHADING & OPTICS -->
+      <div class="section-header">
+        <span>🧵 TACTILE SHADING & OPTICS</span>
+        <span class="sub">Live CSS Engine</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>Gradient Text Mesh</span>
+          <div class="toggle on"></div>
+        </div>
+        <p class="card-sub">Continuous color flow over glyph contours</p>
+        <div class="gradient-row">
+          <div
+            class="gradient-pill"
+            style="background: linear-gradient(90deg, #f43f5e, #818cf8)"
+          >
+            Silk Sunset
+          </div>
+          <div
+            class="gradient-pill"
+            style="background: linear-gradient(90deg, #10b981, #818cf8)"
+          >
+            Aurora
+          </div>
+          <div
+            class="gradient-pill"
+            style="background: linear-gradient(90deg, #f59e0b, #f43f5e)"
+          >
+            Golden Hour
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>Ambient Text Occlusion</span>
+          <span class="sub">12px / 35%</span>
+        </div>
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Soft Diffusion Blur</span>
+            <span>12px</span>
+          </div>
+          <input type="range" min="0" max="30" value="12" class="slider" />
+        </div>
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Pigment Glow Opacity</span>
+            <span>35%</span>
+          </div>
+          <input type="range" min="0" max="100" value="35" class="slider" />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>Surface Extrusion Mode</span>
+        </div>
+        <div class="extrusion-grid">
+          <div class="extrusion-item active">
+            <span class="icon">📦</span>
+            <div>
+              <strong>Extruded Pill</strong>
+              <p>Soft raised glow</p>
+            </div>
+          </div>
+          <div class="extrusion-item">
+            <span class="icon">▢</span>
+            <div>
+              <strong>Carved Deboss</strong>
+              <p>Inner shadow trough</p>
+            </div>
+          </div>
+          <div class="extrusion-item">
+            <span class="icon">❄️</span>
+            <div>
+              <strong>Silk Frost</strong>
+              <p>Translucent dark</p>
+            </div>
+          </div>
+          <div class="extrusion-item">
+            <span class="icon">◻️</span>
+            <div>
+              <strong>Flat Neutral</strong>
+              <p>Obsidian flat canvas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>Typographic Silhouette</span>
+          <span class="sub">Sans-Serif</span>
+        </div>
+        <div class="silhouette-tabs">
+          <button class="active">Sans-Serif</button>
+          <button>Editorial Serif</button>
+          <button>Monospace</button>
+        </div>
+      </div>
+
+      <!-- BOTTOM BUTTONS -->
+      <button class="apply-btn">📋 Apply Style to All Font Previews</button>
+      <div class="bottom-actions">
+        <button class="save-btn">💾 Save Recipe</button>
+        <button class="reset-btn">↺ Reset Studio</button>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav">
+        <a href="/index.html" class="nav-item">
+          <span>TT</span>
+          <p>Fonts</p>
+        </a>
+        <a href="/colors/indexTheme.html" class="nav-item">
+          <span>✳️</span>
+          <p>Color & FX</p>
+        </a>
+        <a href="/collection/indexCollection.html" class="nav-item active">
+          <span>📚</span>
+          <p>Collection</p>
+        </a>
+        <div class="nav-item">
+          <span>⬇️</span>
+          <p>Export</p>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
