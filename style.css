@@ -493,9 +493,10 @@ body {
   background: var(--card);
   border: 1px solid var(--border);
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0, 0.06);
-  border-radius: 16px 16px 16px 16px;
+  border-radius: 16px 16px 0px 0px;
   padding: 10px;
-  margin: 16px 16px 16px 16px;
+  margin: 0 auto;
+  max-width: 430px;
 }
 
 .nav-item {
