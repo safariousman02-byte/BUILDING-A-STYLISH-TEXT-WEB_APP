@@ -5,8 +5,46 @@
   box-sizing: border-box;
 }
 
-/* DARK NEOMORPHIC — Extruded Light */
+/* ============================================================
+   LIGHT THEME (default)
+   ============================================================ */
 :root {
+  --surface-base: #e8eaf0;
+  --surface-raised: #e8eaf0;
+
+  --text-primary: #2a2d3a;
+  --text-secondary: #6b7080;
+  --text-tertiary: #8e93a3;
+
+  --primary: #6366f1;
+  --secondary: #7c3aed;
+  --success: #10b981;
+
+  --shadow-raised:
+    6px 6px 12px rgba(0, 0, 0, 0.08), -6px -6px 12px rgba(255, 255, 255, 0.6);
+  --shadow-inset:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.06),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+  --shadow-soft:
+    3px 3px 8px rgba(0, 0, 0, 0.06), -3px -3px 8px rgba(255, 255, 255, 0.5);
+
+  --r-sm: 0.25rem;
+  --r-md: 0.75rem;
+  --r-lg: 1rem;
+  --r-xl: 1.5rem;
+  --r-full: 9999px;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+}
+
+/* ============================================================
+   DARK THEME
+   ============================================================ */
+[data-theme="dark"] {
   --surface-base: #1a1d26;
   --surface-raised: #1a1d26;
 
@@ -25,20 +63,11 @@
     inset -4px -4px 8px rgba(255, 255, 255, 0.03);
   --shadow-soft:
     3px 3px 8px rgba(0, 0, 0, 0.5), -3px -3px 8px rgba(255, 255, 255, 0.03);
-
-  --r-sm: 0.25rem;
-  --r-md: 0.75rem;
-  --r-lg: 1rem;
-  --r-xl: 1.5rem;
-  --r-full: 9999px;
-
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2.5rem;
 }
 
+/* ============================================================
+   BASE
+   ============================================================ */
 body {
   background: var(--surface-base);
   color: var(--text-primary);
@@ -47,6 +76,9 @@ body {
   display: flex;
   justify-content: center;
   padding: 12px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .app {
@@ -55,7 +87,9 @@ body {
   padding-bottom: 100px;
 }
 
-/* HEADER */
+/* ============================================================
+   HEADER
+   ============================================================ */
 .header {
   display: flex;
   justify-content: space-between;
@@ -134,7 +168,9 @@ body {
   box-shadow: var(--shadow-raised);
 }
 
-/* SECTION HEADERS */
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -175,7 +211,9 @@ body {
   letter-spacing: 0;
 }
 
-/* RECIPE TABS */
+/* ============================================================
+   RECIPE TABS
+   ============================================================ */
 .recipe-tabs {
   display: flex;
   gap: var(--space-sm);
@@ -205,7 +243,9 @@ body {
   box-shadow: var(--shadow-inset);
 }
 
-/* PREVIEW CARD */
+/* ============================================================
+   PREVIEW CARD
+   ============================================================ */
 .preview-card {
   background: var(--surface-raised);
   border-radius: var(--r-lg);
@@ -309,7 +349,9 @@ body {
   font-weight: 500;
 }
 
-/* CARD */
+/* ============================================================
+   CARD
+   ============================================================ */
 .card {
   background: var(--surface-raised);
   border-radius: var(--r-lg);
@@ -342,7 +384,9 @@ body {
   font-weight: 500;
 }
 
-/* SWATCHES */
+/* ============================================================
+   SWATCHES
+   ============================================================ */
 .swatches {
   display: flex;
   gap: var(--space-sm);
@@ -375,7 +419,9 @@ body {
   font-size: 16px;
 }
 
-/* TONE ROW */
+/* ============================================================
+   TONE ROW
+   ============================================================ */
 .tone-row {
   display: flex;
   gap: var(--space-sm);
@@ -403,7 +449,9 @@ body {
   font-weight: 500;
 }
 
-/* TOGGLE */
+/* ============================================================
+   TOGGLE
+   ============================================================ */
 .toggle {
   width: 44px;
   height: 24px;
@@ -433,7 +481,9 @@ body {
   background: var(--primary);
 }
 
-/* GRADIENT ROW */
+/* ============================================================
+   GRADIENT ROW
+   ============================================================ */
 .gradient-row {
   display: flex;
   gap: var(--space-sm);
@@ -457,7 +507,9 @@ body {
   transform: translateY(-2px);
 }
 
-/* SLIDER */
+/* ============================================================
+   SLIDER
+   ============================================================ */
 .slider-group {
   margin-bottom: var(--space-md);
 }
@@ -492,7 +544,9 @@ body {
   border: 2px solid var(--primary);
 }
 
-/* EXTRUSION GRID */
+/* ============================================================
+   EXTRUSION GRID
+   ============================================================ */
 .extrusion-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -534,7 +588,9 @@ body {
   font-weight: 500;
 }
 
-/* SILHOUETTE TABS */
+/* ============================================================
+   SILHOUETTE TABS
+   ============================================================ */
 .silhouette-tabs {
   display: flex;
   gap: var(--space-sm);
@@ -561,7 +617,9 @@ body {
   box-shadow: var(--shadow-inset);
 }
 
-/* BOTTOM BUTTONS */
+/* ============================================================
+   BOTTOM BUTTONS
+   ============================================================ */
 .apply-btn {
   width: 100%;
   background: var(--surface-raised);
@@ -650,7 +708,9 @@ body {
   box-shadow: var(--shadow-inset);
 }
 
-/* BOTTOM NAV */
+/* ============================================================
+   BOTTOM NAV
+   ============================================================ */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -664,6 +724,10 @@ body {
   z-index: 100;
   max-width: 430px;
   margin: 0 auto;
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .bottom-nav {
   box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.5);
 }
 

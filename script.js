@@ -11,7 +11,7 @@ function getTheme() {
 
 function applyTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
-  themeToggle.textContent = theme === "dark" ? "☀" : "☾";
+  themeToggle.textContent = theme === "dark" ? "☾" : "☀";
 }
 
 applyTheme(getTheme());

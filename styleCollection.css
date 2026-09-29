@@ -5,8 +5,48 @@
   box-sizing: border-box;
 }
 
-/* DARK NEOMORPHIC — Extruded Light */
+/* ============================================================
+   LIGHT THEME (default)
+   ============================================================ */
 :root {
+  --surface-base: #e8eaf0;
+  --surface-raised: #e8eaf0;
+  --surface-pressed: #e8eaf0;
+
+  --text-primary: #2a2d3a;
+  --text-secondary: #6b7080;
+  --text-tertiary: #8e93a3;
+
+  --primary: #6366f1;
+  --secondary: #7c3aed;
+  --success: #10b981;
+  --danger: #dc2626;
+
+  --shadow-raised:
+    6px 6px 12px rgba(0, 0, 0, 0.08), -6px -6px 12px rgba(255, 255, 255, 0.6);
+  --shadow-inset:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.06),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+  --shadow-soft:
+    3px 3px 8px rgba(0, 0, 0, 0.06), -3px -3px 8px rgba(255, 255, 255, 0.5);
+
+  --r-sm: 0.25rem;
+  --r-md: 0.75rem;
+  --r-lg: 1rem;
+  --r-xl: 1.5rem;
+  --r-full: 9999px;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+}
+
+/* ============================================================
+   DARK THEME
+   ============================================================ */
+[data-theme="dark"] {
   --surface-base: #1a1d26;
   --surface-raised: #1a1d26;
   --surface-pressed: #1a1d26;
@@ -27,20 +67,11 @@
     inset -4px -4px 8px rgba(255, 255, 255, 0.03);
   --shadow-soft:
     3px 3px 8px rgba(0, 0, 0, 0.5), -3px -3px 8px rgba(255, 255, 255, 0.03);
-
-  --r-sm: 0.25rem;
-  --r-md: 0.75rem;
-  --r-lg: 1rem;
-  --r-xl: 1.5rem;
-  --r-full: 9999px;
-
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2.5rem;
 }
 
+/* ============================================================
+   BASE
+   ============================================================ */
 body {
   background: var(--surface-base);
   color: var(--text-primary);
@@ -49,6 +80,9 @@ body {
   display: flex;
   justify-content: center;
   padding: 12px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .app {
@@ -57,7 +91,9 @@ body {
   padding-bottom: 100px;
 }
 
-/* HEADER */
+/* ============================================================
+   HEADER
+   ============================================================ */
 .header {
   display: flex;
   justify-content: space-between;
@@ -136,7 +172,9 @@ body {
   box-shadow: var(--shadow-raised);
 }
 
-/* TITLE */
+/* ============================================================
+   TITLE
+   ============================================================ */
 .title-section {
   margin-bottom: var(--space-md);
 }
@@ -178,7 +216,9 @@ body {
   font-weight: 500;
 }
 
-/* STATS PILLS */
+/* ============================================================
+   STATS PILLS
+   ============================================================ */
 .stats-row {
   display: flex;
   gap: var(--space-sm);
@@ -206,7 +246,9 @@ body {
   font-size: 16px;
 }
 
-/* SEARCH BAR */
+/* ============================================================
+   SEARCH BAR
+   ============================================================ */
 .search-bar {
   display: flex;
   align-items: center;
@@ -238,7 +280,9 @@ body {
   color: var(--text-tertiary);
 }
 
-/* FILTER TABS */
+/* ============================================================
+   FILTER TABS
+   ============================================================ */
 .filter-tabs {
   display: flex;
   gap: var(--space-sm);
@@ -283,7 +327,9 @@ body {
   font-weight: 500;
 }
 
-/* VAULT CARDS */
+/* ============================================================
+   VAULT CARDS
+   ============================================================ */
 .vault-card {
   background: var(--surface-raised);
   border-radius: var(--r-lg);
@@ -335,7 +381,9 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* PREVIEW BOXES */
+/* ============================================================
+   PREVIEW BOXES
+   ============================================================ */
 .preview-box {
   background: var(--surface-raised);
   border-radius: var(--r-md);
@@ -383,7 +431,9 @@ body {
   margin-bottom: var(--space-md);
 }
 
-/* ACTION BUTTONS */
+/* ============================================================
+   ACTION BUTTONS
+   ============================================================ */
 .action-row {
   display: flex;
   gap: var(--space-sm);
@@ -445,7 +495,9 @@ body {
   color: var(--danger);
 }
 
-/* BOTTOM ACTIONS */
+/* ============================================================
+   BOTTOM ACTIONS
+   ============================================================ */
 .bottom-actions {
   display: flex;
   gap: var(--space-sm);
@@ -504,7 +556,9 @@ body {
   box-shadow: var(--shadow-inset);
 }
 
-/* VAULT STATUS */
+/* ============================================================
+   VAULT STATUS
+   ============================================================ */
 .vault-status {
   display: flex;
   align-items: flex-start;
@@ -539,7 +593,9 @@ body {
   font-weight: 500;
 }
 
-/* BOTTOM NAV */
+/* ============================================================
+   BOTTOM NAV
+   ============================================================ */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -553,6 +609,10 @@ body {
   z-index: 100;
   max-width: 430px;
   margin: 0 auto;
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .bottom-nav {
   box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.5);
 }
 

@@ -5,26 +5,24 @@
   box-sizing: border-box;
 }
 
-/* SILK — Neomorphic / Soft UI (Light Theme) */
+/* ============================================================
+   LIGHT THEME (default) — Neomorphic / Soft UI
+   ============================================================ */
 :root {
-  /* Surfaces (same family — required for neomorphism) */
   --surface-base: #e8eaf0;
   --surface-raised: #e8eaf0;
   --surface-pressed: #e8eaf0;
 
-  /* Text */
   --text-primary: #2a2d3a;
   --text-secondary: #6b7080;
   --text-tertiary: #8e93a3;
 
-  /* Accents */
   --primary: #6366f1;
+  --secondary: #7c3aed;
   --tertiary: #7c3aed;
+  --success: #10b981;
+  --danger: #dc2626;
 
-  /* Glow (subtle in light mode) */
-  --glow-primary: rgba(99, 102, 241, 0.15);
-
-  /* Shadows — Neomorphic core */
   --shadow-raised:
     6px 6px 12px rgba(0, 0, 0, 0.08), -6px -6px 12px rgba(255, 255, 255, 0.6);
   --shadow-inset:
@@ -33,14 +31,12 @@
   --shadow-soft:
     3px 3px 8px rgba(0, 0, 0, 0.06), -3px -3px 8px rgba(255, 255, 255, 0.5);
 
-  /* Rounded */
   --r-sm: 0.25rem;
   --r-md: 0.75rem;
   --r-lg: 1rem;
   --r-xl: 1.5rem;
   --r-full: 9999px;
 
-  /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -48,26 +44,36 @@
   --space-xl: 2.5rem;
 }
 
+/* ============================================================
+   DARK THEME — Neomorphic / Soft UI
+   ============================================================ */
 [data-theme="dark"] {
-  --surface-base: #0f1117;
-  --surface-raised: #1e222d;
+  --surface-base: #1a1d26;
+  --surface-raised: #1a1d26;
+  --surface-pressed: #1a1d26;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
+  --text-primary: #e8eaf0;
+  --text-secondary: #9aa0b0;
+  --text-tertiary: #6b7080;
 
   --primary: #818cf8;
+  --secondary: #a855f7;
   --tertiary: #a855f7;
+  --success: #34d399;
+  --danger: #f87171;
 
   --shadow-raised:
-    6px 6px 14px rgba(0, 0, 0, 0.7), -4px -4px 10px rgba(255, 255, 255, 0.04);
+    6px 6px 12px rgba(0, 0, 0, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.04);
   --shadow-inset:
     inset 4px 4px 8px rgba(0, 0, 0, 0.65),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.04);
+    inset -4px -4px 8px rgba(255, 255, 255, 0.03);
   --shadow-soft:
-    3px 3px 8px rgba(0, 0, 0, 0.6), -2px -2px 6px rgba(255, 255, 255, 0.03);
+    3px 3px 8px rgba(0, 0, 0, 0.5), -3px -3px 8px rgba(255, 255, 255, 0.03);
 }
 
+/* ============================================================
+   BASE
+   ============================================================ */
 body {
   background: var(--surface-base);
   color: var(--text-primary);
@@ -76,6 +82,9 @@ body {
   display: flex;
   justify-content: center;
   padding: 12px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .app {
@@ -84,7 +93,9 @@ body {
   padding-bottom: 100px;
 }
 
-/* HEADER */
+/* ============================================================
+   HEADER
+   ============================================================ */
 .header {
   display: flex;
   justify-content: space-between;
@@ -115,6 +126,7 @@ body {
   justify-content: center;
   color: var(--primary);
   font-size: 14px;
+  font-weight: 700;
   box-shadow: var(--shadow-raised);
 }
 
@@ -169,7 +181,9 @@ body {
   box-shadow: var(--shadow-raised);
 }
 
-/* INPUT SECTION */
+/* ============================================================
+   INPUT SECTION
+   ============================================================ */
 .input-section {
   background: var(--surface-raised);
   border-radius: var(--r-lg);
@@ -247,7 +261,9 @@ body {
   box-shadow: var(--shadow-inset);
 }
 
-/* CARD */
+/* ============================================================
+   CARD
+   ============================================================ */
 .card {
   background: var(--surface-raised);
   border-radius: var(--r-lg);
@@ -355,7 +371,9 @@ body {
   box-shadow: var(--shadow-inset);
 }
 
-/* FILTER TABS */
+/* ============================================================
+   FILTER TABS
+   ============================================================ */
 .filter-tabs {
   display: flex;
   gap: var(--space-sm);
@@ -385,7 +403,9 @@ body {
   font-weight: 600;
 }
 
-/* FONT CARDS */
+/* ============================================================
+   FONT CARDS
+   ============================================================ */
 .font-card {
   background: var(--surface-raised);
   border-radius: var(--r-lg);
@@ -459,7 +479,9 @@ body {
   justify-content: center;
 }
 
-/* FONT STYLES */
+/* ============================================================
+   FONT STYLES
+   ============================================================ */
 .editorial-serif {
   font-family: "Playfair Display", serif;
   font-style: italic;
@@ -526,7 +548,9 @@ body {
   box-shadow: var(--shadow-inset);
 }
 
-/* BOTTOM TIP */
+/* ============================================================
+   BOTTOM TIP
+   ============================================================ */
 .bottom-tip {
   display: flex;
   align-items: center;
@@ -553,7 +577,9 @@ body {
   font-size: 16px;
 }
 
-/* BOTTOM NAV */
+/* ============================================================
+   BOTTOM NAV
+   ============================================================ */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -570,6 +596,10 @@ body {
   box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
 }
 
+[data-theme="dark"] .bottom-nav {
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.5);
+}
+
 .nav-item {
   text-align: center;
   padding: 10px 8px;
@@ -581,8 +611,8 @@ body {
   display: block;
 }
 
-.nav-item span {
-  font-size: 20px;
+.nav-item span .material-symbols-outlined {
+  font-size: 22px;
   display: block;
   margin-bottom: 4px;
   color: var(--text-tertiary);
@@ -592,19 +622,14 @@ body {
   font-size: 10px;
   color: var(--text-tertiary);
   font-weight: 500;
-  letter-spacing: 0.02em;
 }
 
 .nav-item.active {
   box-shadow: var(--shadow-inset);
 }
 
-.nav-item.active span,
+.nav-item.active span .material-symbols-outlined,
 .nav-item.active p {
   color: var(--primary);
   font-weight: 600;
-}
-
-.nav-item:active {
-  box-shadow: var(--shadow-inset);
 }
