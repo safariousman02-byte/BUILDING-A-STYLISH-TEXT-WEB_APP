@@ -204,14 +204,22 @@ function generateFontText(text) {
           <div class="font-title">
             <span class="dot"></span> ${style.name}
           </div>
+          <div class="font-meta">Typewriter Matrix</div>
           <div class="font-actions">
-            <button class="copy-card">
-              <span class="material-symbols-outlined">content_copy</span>
+            <button class="heart-btn">
+              <span class="material-symbols-outlined">favorite</span>
             </button>
           </div>
         </div>
         <div class="font-preview" style="font-family: ${style.css}; font-style:${style.italic ? "italic" : "normal"};">
           ${text}
+        </div>
+        <div class="font-footer">
+          <span class="font-desc">Fixed Pitch Unicode glyphs</span>
+          <button class="copy-card">
+          <span class="material-symbols-outlined">content_copy</span>
+          Copy
+        </button>
         </div>
       `;
     fontList.appendChild(card);
@@ -238,3 +246,200 @@ window.addEventListener("DOMContentLoaded", () => {
   textInput.value = defaultText;
   generateFontText(defaultText);
 });
+
+const boldMap = {
+  a: "𝐚",
+  b: "𝐛",
+  c: "𝐜",
+  d: "𝐝",
+  e: "𝐞",
+  f: "𝐟",
+  g: "𝐠",
+  h: "𝐡",
+  i: "𝐢",
+  j: "𝐣",
+  k: "𝐤",
+  l: "𝐥",
+  m: "𝐦",
+  n: "𝐧",
+  o: "𝐨",
+  p: "𝐩",
+  q: "𝐪",
+  r: "𝐫",
+  s: "𝐬",
+  t: "𝐭",
+  u: "𝐮",
+  v: "𝐯",
+  w: "𝐰",
+  x: "𝐱",
+  y: "𝐲",
+  z: "𝐳",
+  A: "𝐀",
+  B: "𝐁",
+  C: "𝐂",
+  D: "𝐃",
+  E: "𝐄",
+  F: "𝐅",
+  G: "𝐆",
+  H: "𝐇",
+  I: "𝐈",
+  J: "𝐉",
+  K: "𝐊",
+  L: "𝐋",
+  M: "𝐌",
+  N: "𝐍",
+  O: "𝐎",
+  P: "𝐏",
+  Q: "𝐐",
+  R: "𝐑",
+  S: "𝐒",
+  T: "𝐓",
+  U: "𝐔",
+  V: "𝐕",
+  W: "𝐖",
+  X: "𝐗",
+  Y: "𝐘",
+  Z: "𝐙",
+  0: "𝟎",
+  1: "𝟏",
+  2: "𝟐",
+  3: "𝟑",
+  4: "𝟒",
+  5: "𝟓",
+  6: "𝟔",
+  7: "𝟕",
+  8: "𝟖",
+  9: "𝟗",
+};
+
+const italicMap = {
+  a: "𝑎",
+  b: "𝑏",
+  c: "𝑐",
+  d: "𝑑",
+  e: "𝑒",
+  f: "𝑓",
+  g: "𝑔",
+  h: "ℎ",
+  i: "𝑖",
+  j: "𝑗",
+  k: "𝑘",
+  l: "𝑙",
+  m: "𝑚",
+  n: "𝑛",
+  o: "𝑜",
+  p: "𝑝",
+  q: "𝑞",
+  r: "𝑟",
+  s: "𝑠",
+  t: "𝑡",
+  u: "𝑢",
+  v: "𝑣",
+  w: "𝑤",
+  x: "𝑥",
+  y: "𝑦",
+  z: "𝑧",
+  A: "𝐴",
+  B: "𝐵",
+  C: "𝐶",
+  D: "𝐷",
+  E: "𝐸",
+  F: "𝐹",
+  G: "𝐺",
+  H: "𝐻",
+  I: "𝐼",
+  J: "𝐽",
+  K: "𝐾",
+  L: "𝐿",
+  M: "𝑀",
+  N: "𝑁",
+  O: "𝑂",
+  P: "𝑃",
+  Q: "𝑄",
+  R: "𝑅",
+  S: "𝑆",
+  T: "𝑇",
+  U: "𝑈",
+  V: "𝑉",
+  W: "𝑊",
+  X: "𝑋",
+  Y: "𝑌",
+  Z: "𝑍",
+};
+
+function toBold(text) {
+  return text
+    .split("")
+    .map((c) => boldMap[c] || c)
+    .join("");
+}
+
+function toItalic(text) {
+  return text
+    .split("")
+    .map((c) => italicMap[c] || c)
+    .join("");
+}
+
+function toUnderline(text) {
+  return text
+    .split("")
+    .map((c) => c + "\u0332")
+    .join("");
+}
+
+function toTitleCase(text) {
+  return text.replace(
+    /\w\S*/g,
+    (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase(),
+  );
+}
+
+const fmtButton = document.querySelectorAll(".fmt-btn");
+
+fmtButton.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const action = btn.dataset.action;
+    let text = textInput.value;
+
+    switch (action) {
+      case "clear":
+        text = "";
+        break;
+      case "upper":
+        text = text.toUpperCase();
+        break;
+      case "lower":
+        text = text.toLowerCase();
+        break;
+      case "title":
+        text = toTitleCase(text);
+        break;
+      case "bold":
+        text = toBold(text);
+        break;
+      case "italic":
+        text = toItalic(text);
+        break;
+      case "underline":
+        text = toUnderline(text);
+        break;
+    }
+    textInput.value = text;
+    generateFontText(text);
+  });
+});
+
+console.log("hey".split("").map((v) => v + "\u0332"));
+
+const generateBtn = document.querySelector("#generateBtn");
+
+if (generateBtn) {
+  generateBtn.addEventListener("click", () => {
+    const text = textInput.value.trim();
+
+    if (text === "") return;
+    generateFontText(text);
+    console.log(generateFontText(text));
+  });
+}
