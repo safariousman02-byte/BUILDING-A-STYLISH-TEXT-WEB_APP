@@ -41,13 +41,154 @@ const textInput = document.querySelector("#textInput");
 const fontList = document.querySelector("#fontList");
 
 const styles = [
+  // ============ ELEGANT SERIF ============
   { name: "Playfair Display", css: "'Playfair Display', serif", italic: false },
-  { name: "Editorial Serif", css: "'Playfair Display', serif", italic: true },
-  { name: "Dancing Script", css: "'Dancing Script', cursive", italic: false },
-  { name: "Fira Code", css: "'Fira Code', monospace", italic: false },
-  { name: "Space Grotesk", css: "'Space Grotesk', sans-serif", italic: false },
+  { name: "Playfair Italic", css: "'Playfair Display', serif", italic: true },
+  {
+    name: "Cormorant Garamond",
+    css: "'Cormorant Garamond', serif",
+    italic: false,
+  },
+  {
+    name: "Cormorant Italic",
+    css: "'Cormorant Garamond', serif",
+    italic: true,
+  },
   { name: "DM Serif Display", css: "'DM Serif Display', serif", italic: false },
-  // Add more fonts here
+  { name: "DM Serif Italic", css: "'DM Serif Display', serif", italic: true },
+  { name: "Bodoni Moda", css: "'Bodoni Moda', serif", italic: false },
+  { name: "Prata", css: "'Prata', serif", italic: false },
+  { name: "Cinzel", css: "'Cinzel', serif", italic: false },
+  {
+    name: "Cinzel Decorative",
+    css: "'Cinzel Decorative', serif",
+    italic: false,
+  },
+
+  // ============ BEAUTIFUL SCRIPTS ============
+  { name: "Dancing Script", css: "'Dancing Script', cursive", italic: false },
+  { name: "Great Vibes", css: "'Great Vibes', cursive", italic: false },
+  { name: "Allura", css: "'Allura', cursive", italic: false },
+  { name: "Parisienne", css: "'Parisienne', cursive", italic: false },
+  { name: "Alex Brush", css: "'Alex Brush', cursive", italic: false },
+  { name: "Sacramento", css: "'Sacramento', cursive", italic: false },
+  { name: "Pinyon Script", css: "'Pinyon Script', cursive", italic: false },
+  { name: "Italianno", css: "'Italianno', cursive", italic: false },
+  { name: "Tangerine", css: "'Tangerine', cursive", italic: false },
+  {
+    name: "Mrs Saint Delafield",
+    css: "'Mrs Saint Delafield', cursive",
+    italic: false,
+  },
+
+  // ============ HANDWRITTEN / CASUAL ============
+  { name: "Caveat", css: "'Caveat', cursive", italic: false },
+  { name: "Kalam", css: "'Kalam', cursive", italic: false },
+  {
+    name: "Shadows Into Light",
+    css: "'Shadows Into Light', cursive",
+    italic: false,
+  },
+  { name: "Indie Flower", css: "'Indie Flower', cursive", italic: false },
+  { name: "Amatic SC", css: "'Amatic SC', cursive", italic: false },
+  {
+    name: "Architects Daughter",
+    css: "'Architects Daughter', cursive",
+    italic: false,
+  },
+  {
+    name: "Nanum Pen Script",
+    css: "'Nanum Pen Script', cursive",
+    italic: false,
+  },
+
+  // ============ MODERN SANS ============
+  { name: "Inter", css: "'Inter', sans-serif", italic: false },
+  { name: "Space Grotesk", css: "'Space Grotesk', sans-serif", italic: false },
+  { name: "Syne", css: "'Syne', sans-serif", italic: false },
+  { name: "Outfit", css: "'Outfit', sans-serif", italic: false },
+  { name: "Sora", css: "'Sora', sans-serif", italic: false },
+  { name: "Unbounded", css: "'Unbounded', sans-serif", italic: false },
+  { name: "Josefin Sans", css: "'Josefin Sans', sans-serif", italic: false },
+  { name: "Poiret One", css: "'Poiret One', cursive", italic: false },
+  {
+    name: "Julius Sans One",
+    css: "'Julius Sans One', sans-serif",
+    italic: false,
+  },
+
+  // ============ BOLD DISPLAY ============
+  { name: "Anton", css: "'Anton', sans-serif", italic: false },
+  { name: "Bebas Neue", css: "'Bebas Neue', sans-serif", italic: false },
+  { name: "Archivo Black", css: "'Archivo Black', sans-serif", italic: false },
+  { name: "Alfa Slab One", css: "'Alfa Slab One', serif", italic: false },
+  { name: "Righteous", css: "'Righteous', cursive", italic: false },
+  { name: "Bowlby One", css: "'Bowlby One', sans-serif", italic: false },
+  { name: "Bungee", css: "'Bungee', cursive", italic: false },
+  { name: "Bungee Shade", css: "'Bungee Shade', cursive", italic: false },
+  { name: "Monoton", css: "'Monoton', cursive", italic: false },
+
+  // ============ RETRO / NEON ============
+  { name: "Orbitron", css: "'Orbitron', sans-serif", italic: false },
+  { name: "Audiowide", css: "'Audiowide', cursive", italic: false },
+  { name: "Michroma", css: "'Michroma', sans-serif", italic: false },
+  { name: "Syncopate", css: "'Syncopate', sans-serif", italic: false },
+  {
+    name: "Major Mono Display",
+    css: "'Major Mono Display', monospace",
+    italic: false,
+  },
+
+  // ============ GOTHIC / ARCHIVAL ============
+  {
+    name: "UnifrakturMaguntia",
+    css: "'UnifrakturMaguntia', cursive",
+    italic: false,
+  },
+  { name: "Pirata One", css: "'Pirata One', cursive", italic: false },
+  { name: "Metamorphous", css: "'Metamorphous', cursive", italic: false },
+  { name: "Almendra", css: "'Almendra', serif", italic: false },
+
+  // ============ PLAYFUL / BUBBLE ============
+  { name: "Baloo 2", css: "'Baloo 2', cursive", italic: false },
+  { name: "Bubblegum Sans", css: "'Bubblegum Sans', cursive", italic: false },
+  { name: "Chewy", css: "'Chewy', cursive", italic: false },
+  { name: "Sniglet", css: "'Sniglet', cursive", italic: false },
+  { name: "Varela Round", css: "'Varela Round', sans-serif", italic: false },
+  {
+    name: "Mochiy Pop One",
+    css: "'Mochiy Pop One', sans-serif",
+    italic: false,
+  },
+
+  // ============ QUIRKY / UNIQUE ============
+  { name: "Bungee Inline", css: "'Bungee Inline', cursive", italic: false },
+  { name: "Bungee Outline", css: "'Bungee Outline', cursive", italic: false },
+  { name: "Rubik Glitch", css: "'Rubik Glitch', cursive", italic: false },
+  { name: "Rubik Moonrocks", css: "'Rubik Moonrocks', cursive", italic: false },
+  { name: "Silkscreen", css: "'Silkscreen', cursive", italic: false },
+  { name: "Zen Dots", css: "'Zen Dots', cursive", italic: false },
+  { name: "Faster One", css: "'Faster One', cursive", italic: false },
+  { name: "Wallpoet", css: "'Wallpoet', cursive", italic: false },
+  { name: "Codystar", css: "'Codystar', cursive", italic: false },
+  { name: "Kranky", css: "'Kranky', cursive", italic: false },
+  { name: "Freckle Face", css: "'Freckle Face', cursive", italic: false },
+  { name: "Miltonian", css: "'Miltonian', cursive", italic: false },
+  { name: "Metal Mania", css: "'Metal Mania', cursive", italic: false },
+  { name: "Creepster", css: "'Creepster', cursive", italic: false },
+  { name: "Nosifer", css: "'Nosifer', cursive", italic: false },
+  { name: "Butcherman", css: "'Butcherman', cursive", italic: false },
+
+  // ============ STENCIL / OUTLINE ============
+  { name: "Stardos Stencil", css: "'Stardos Stencil', cursive", italic: false },
+  { name: "Modak", css: "'Modak', cursive", italic: false },
+  { name: "Passero One", css: "'Passero One', cursive", italic: false },
+
+  // ============ MONOSPACE ============
+  { name: "Fira Code", css: "'Fira Code', monospace", italic: false },
+  { name: "JetBrains Mono", css: "'JetBrains Mono', monospace", italic: false },
+  { name: "Space Mono", css: "'Space Mono', monospace", italic: false },
+  { name: "Nova Mono", css: "'Nova Mono', monospace", italic: false },
 ];
 
 function generateFontText(text) {
