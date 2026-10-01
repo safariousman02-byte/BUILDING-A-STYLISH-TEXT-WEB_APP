@@ -109,23 +109,38 @@
         <div class="slider-group">
           <div class="slider-label">
             <span>Glyph Size</span>
-            <span>20px</span>
+            <span class="value-badge" id="glyphSizeVal">20px</span>
           </div>
-          <input type="range" min="10" max="40" value="20" class="slider" />
+          <input
+            type="range"
+            id="glyphSize"
+            min="10"
+            max="60"
+            value="20"
+            class="slider"
+          />
         </div>
 
         <div class="slider-group">
           <div class="slider-label">
             <span>Kerning / Spacing</span>
-            <span>+2.0px</span>
+            <span class="value-badge" id="kerningVal">+2.0px</span>
           </div>
-          <input type="range" min="-5" max="10" value="2" class="slider" />
+          <input
+            id="kerning"
+            type="range"
+            min="-5"
+            max="10"
+            value="2"
+            step="0.5"
+            class="slider"
+          />
         </div>
 
         <div class="button-row">
-          <button class="copy-all-btn">
-            <span class="material-symbols-outlined">file_copy</span>
-            Copy All
+          <button class="copy-all-btn" id="copyAllBtn">
+            <span class="material-symbols-outlined">content_copy</span>
+            Copy All (7 Styles)
           </button>
           <button class="auto-sync-btn">
             <span class="material-symbols-outlined">sync</span>

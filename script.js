@@ -511,3 +511,108 @@ if (restoreBtn) {
     generateFontText(prev);
   });
 }
+
+// ==========================================
+// DIMENSIONS & SPACING
+// ==========================================
+
+const glyphSize = document.getElementById("glyphSize");
+const kerning = document.getElementById("kerning");
+const glyphSizeVal = document.getElementById("glyphSizeVal");
+const kerningVal = document.getElementById("kerningVal");
+const copyAllBtn = document.getElementById("copyAllBtn");
+const autoSyncBtn = document.getElementById("autoSyncBtn");
+
+let autoSync = false;
+
+// ---- Glyph Size Slider ----
+if (glyphSize) {
+  glyphSize.addEventListener("input", (e) => {
+    const size = e.target.value;
+    glyphSizeVal.textContent = `${size}px`;
+
+    // Apply to all previews live if auto-sync is ON
+    if (autoSync) {
+      document.querySelectorAll(".font-preview").forEach((el) => {
+        el.style.fontSize = `${size}px`;
+      });
+    }
+  });
+}
+
+// ---- Kerning / Spacing Slider ----
+if (kerning) {
+  kerning.addEventListener("input", (e) => {
+    const spacing = parseFloat(e.target.value);
+    const display =
+      spacing >= 0 ? `+${spacing.toFixed(1)}px` : `${spacing.toFixed(1)}px`;
+    kerningVal.textContent = display;
+
+    if (autoSync) {
+      document.querySelectorAll(".font-preview").forEach((el) => {
+        el.style.letterSpacing = `${spacing}px`;
+      });
+    }
+  });
+}
+
+// ---- Auto-sync Toggle ----
+if (autoSyncBtn) {
+  autoSyncBtn.addEventListener("click", () => {
+    autoSync = !autoSync;
+
+    // Update button look
+    autoSyncBtn.classList.toggle("active", autoSync);
+    autoSyncBtn.querySelector(".material-symbols-outlined").textContent =
+      autoSync ? "sync" : "sync_disabled";
+    autoSyncBtn.lastChild.textContent = autoSync
+      ? " Auto-sync Enabled"
+      : " Auto-sync Disabled";
+
+    // Apply current values immediately when turned ON
+    if (autoSync) {
+      const size = glyphSize.value;
+      const spacing = kerning.value;
+      document.querySelectorAll(".font-preview").forEach((el) => {
+        el.style.fontSize = `${size}px`;
+        el.style.letterSpacing = `${spacing}px`;
+      });
+    } else {
+      // Reset to defaults
+      document.querySelectorAll(".font-preview").forEach((el) => {
+        el.style.fontSize = "";
+        el.style.letterSpacing = "";
+      });
+    }
+  });
+}
+
+// ---- Copy All Styles ----
+if (copyAllBtn) {
+  copyAllBtn.addEventListener("click", async () => {
+    const text = textInput.value;
+    if (!text) return;
+
+    // Build a block with all font styles
+    let output = `✨ ${text} — All Styles ✨\n\n`;
+    styles.forEach((style) => {
+      output += `[${style.name}]\n${text}\n\n`;
+    });
+
+    try {
+      await navigator.clipboard.writeText(output);
+      copyAllBtn.innerHTML = `
+        <span class="material-symbols-outlined">check</span>
+        Copied!
+      `;
+      setTimeout(() => {
+        copyAllBtn.innerHTML = `
+          <span class="material-symbols-outlined">content_copy</span>
+          Copy All (7 Styles)
+        `;
+      }, 1500);
+    } catch (err) {
+      console.error("Copy failed:", err);
+    }
+  });
+}
