@@ -11,7 +11,10 @@ function getTheme() {
 
 function applyTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
-  themeToggle.textContent = theme === "dark" ? "☾" : "☀";
+  const icon = themeToggle.querySelector(".material-symbols-outlined");
+  if (icon) {
+    icon.textContent = theme === "dark" ? "dark_mode" : "light_mode";
+  }
 }
 
 applyTheme(getTheme());
