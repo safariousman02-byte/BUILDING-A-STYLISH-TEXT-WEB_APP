@@ -231,6 +231,57 @@ body {
   font-weight: 500;
 }
 
+.label-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.label-icon {
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.label-text {
+  color: var(--text-secondary);
+}
+
+.label-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.icon-action {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-full);
+  border: none;
+  background: var(--surface-raised);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.15s ease;
+}
+
+.icon-action .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.icon-action:active {
+  box-shadow: var(--shadow-inset);
+  color: var(--primary);
+}
+
+.icon-action:hover {
+  color: var(--primary);
+}
+
 .icons {
   display: flex;
   gap: var(--space-sm);

@@ -404,6 +404,7 @@ fmtButton.forEach((btn) => {
 
     switch (action) {
       case "clear":
+        pushHistory(text);
         text = "";
         break;
       case "upper":
@@ -438,8 +439,72 @@ if (generateBtn) {
   generateBtn.addEventListener("click", () => {
     const text = textInput.value.trim();
 
+    pushHistory(textInput.value);
+
     if (text === "") return;
     generateFontText(text);
+    console.log(textHistory);
     console.log(generateFontText(text));
+  });
+}
+
+const randomBtn = document.getElementById("randomBtn");
+const clearBtn = document.getElementById("clearBtn");
+const restoreBtn = document.getElementById("restoreBtn");
+
+let lastText = "";
+let lastGenerated = "";
+
+if (randomBtn) {
+  randomBtn.addEventListener("click", () => {
+    pushHistory(textInput.value);
+    let text = textInput.value.trim();
+    if (!text) return;
+
+    lastText = textInput.value;
+
+    const transforms = [
+      () => text.toUpperCase(),
+      () => text.toLowerCase(),
+      () => toTitleCase(text),
+      () => toBold(text),
+      () => toItalic(text),
+      () => toUnderline(text),
+      () => toBold(text).toUpperCase(),
+      () => toItalic(toTitleCase(text)),
+    ];
+
+    const random = transforms[Math.floor(Math.random() * transforms.length)];
+    text = random();
+
+    textInput.value = text;
+    generateFontText(text);
+  });
+}
+
+if (clearBtn) {
+  clearBtn.addEventListener("click", () => {
+    pushHistory(textInput.value);
+    textInput.value = "";
+    fontList.innerHTML = "";
+    textInput.focus();
+  });
+}
+
+let textHistory = [];
+
+function pushHistory(text) {
+  if (text) {
+    textHistory.push(text);
+  }
+}
+
+if (restoreBtn) {
+  restoreBtn.addEventListener("click", () => {
+    if (textHistory.length === 0) return;
+
+    const prev = textHistory.pop();
+    textInput.value = prev;
+    generateFontText(prev);
   });
 }
