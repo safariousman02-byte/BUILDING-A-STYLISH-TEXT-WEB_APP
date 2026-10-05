@@ -1062,6 +1062,12 @@ const styles = [
     italic: false,
     map: null,
   },
+  {
+    name: "Dancing Script",
+    css: "'Dancing Script', cursive",
+    italic: false,
+    map: null,
+  },
 ];
 
 // ============================================================
@@ -1083,7 +1089,7 @@ function generateFontText(text) {
         <div class="font-meta">Glyph & Silk</div>
         <div class="font-actions">
           <button class="heart-btn">
-            <span class="material-symbols-outlined">favorite</span>
+            <span class="material-symbols-outlined icon">star</span>
           </button>
         </div>
       </div>
@@ -1101,6 +1107,13 @@ function generateFontText(text) {
 
     const copyBtn = card.querySelector(".copy-card");
     copyBtn.addEventListener("click", () => copyFont(text, style, copyBtn));
+
+    // Inside generateFontText, after creating the card:
+
+    const heartBtn = card.querySelector(".heart-btn");
+    heartBtn.addEventListener("click", () => {
+      toggleSave(text, style, heartBtn);
+    });
 
     fontList.appendChild(card);
   });
@@ -1362,4 +1375,54 @@ if (copyAllBtn) {
       console.error("Copy All failed:", err);
     }
   });
+}
+
+// ============================================================
+// SAVE TO COLLECTION
+// ============================================================
+
+function getSavedFonts() {
+  const saved = localStorage.getItem("glyphSavedFonts");
+  return saved ? JSON.parse(saved) : [];
+}
+
+function saveFonts(fonts) {
+  localStorage.setItem("glyphSavedFonts", JSON.stringify(fonts));
+}
+
+function isFontSaved(text, styleName) {
+  const saved = getSavedFonts();
+  return saved.some((f) => f.text === text && f.styleName === styleName);
+}
+
+function toggleSave(text, style, heartBtn) {
+  let saved = getSavedFonts();
+  const exists = saved.findIndex(
+    (f) => f.text === text && f.styleName === style.name,
+  );
+
+  if (exists > -1) {
+    // Remove
+    saved.splice(exists, 1);
+    heartBtn.classList.remove("saved");
+  } else {
+    // Add
+    const converted = style.map ? convertText(text, style.map) : text;
+    saved.push({
+      id: Date.now(),
+      text: text,
+      converted: converted,
+      styleName: style.name,
+      css: style.css,
+      italic: style.italic,
+      savedAt: new Date().toISOString(),
+    });
+    heartBtn.classList.add("saved");
+  }
+
+  saveFonts(saved);
+
+  // Feedback animation
+  heartBtn.style.transform = "scale(1.3)";
+  setTimeout(() => (heartBtn.style.transform = "scale(1)"), 200);
 }

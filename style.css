@@ -957,3 +957,30 @@ body {
 .copy-card .material-symbols-outlined {
   font-size: 14px;
 }
+
+/* Heart button */
+.heart-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.2s ease;
+}
+
+.heart-btn .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.heart-btn.saved {
+  color: var(--primary);
+}
+
+.heart-btn.saved .material-symbols-outlined {
+  font-variation-settings: "FILL" 1; /* Fills the heart */
+  text-shadow: 0 0 12px var(--glow-primary);
+}
+
+.heart-btn:hover {
+  color: var(--primary);
+}
