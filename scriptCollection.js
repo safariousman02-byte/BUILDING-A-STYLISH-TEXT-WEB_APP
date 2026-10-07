@@ -32,6 +32,14 @@ function getSavedFonts() {
   return saved ? JSON.parse(saved) : [];
 }
 
+function getColorCount() {
+  return parseInt(localStorage.getItem("savedArray") || "0", 10);
+}
+
+function getCopyCount() {
+  return parseInt(localStorage.getItem("savedArray") || "0", 10);
+}
+
 function saveFonts(fonts) {
   localStorage.setItem("savedArray", JSON.stringify(fonts));
 }
@@ -65,11 +73,6 @@ function renderSaved() {
             <p>Tap the star on the font card to save it here.</p>
         </div>
     `;
-
-    const exportBtn = document.querySelector(".exportBtn");
-    const clearBtn = document.querySelector(".clearBtn");
-    if (exportBtn) exportBtn.disabled = true;
-    if (clearBtn) clearBtn.disabled = true;
 
     return;
   }
@@ -119,11 +122,35 @@ function renderSaved() {
 
     savedList.appendChild(card);
   });
+
+  // 1. Total saved fonts = length of the saved array
+  const savedCountEl = document.getElementById("savedCount");
+  if (savedCountEl) savedCountEl.textContent = saved.length;
+
+  // 2. Total color recipes
+  const colorCountEl = document.getElementById("colorCount");
+  if (colorCountEl) colorCountEl.textContent = getColorCount();
+
+  // 3. Total copied fonts
+  const copyCountEl = document.getElementById("copyCount");
+  if (copyCountEl) copyCountEl.textContent = getCopyCount();
+
+  const exportBtn = document.querySelector(".exportBtn");
+  const clearBtn = document.querySelector(".clearBtn");
+  if (exportBtn) exportBtn.disabled = true;
+  if (clearBtn) clearBtn.disabled = true;
 }
 
 async function copySaved(text, btn) {
   try {
     await navigator.clipboard.writeText(text);
+
+    const currentCount = parseInt(
+      localStorage.getItem("savedArray") || "0",
+      10,
+    );
+    localStorage.setItem("savedArray", currentCount + 1);
+
     const original = btn.innerHTML;
     btn.innerHTML = `
             <span class="material-symbols-outlined">check</span>
@@ -143,7 +170,7 @@ function deleteSaved(id) {
 
   saved = saved.filter((f) => f.id !== id);
 
-  saveFonts(fonts);
+  saveFonts(saved);
 
   renderSaved();
 }
@@ -190,4 +217,4 @@ if (clearBtn) {
   });
 }
 
-console.log(localStorage.length);
+console.log(JSON.parse(localStorage.getItem("savedArray")).length);

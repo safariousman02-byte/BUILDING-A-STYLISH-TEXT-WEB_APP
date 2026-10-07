@@ -1969,6 +1969,11 @@ if (copyAllBtn) {
 
     try {
       await navigator.clipboard.writeText(output);
+      const currentCount = parseInt(
+        localStorage.getItem("glyphCopyCount") || "0",
+        10,
+      );
+      localStorage.setItem("glyphCopyCount", currentCount + 1);
       const original = copyAllBtn.innerHTML;
       copyAllBtn.innerHTML = `<span class="material-symbols-outlined">check</span> Copied!`;
       setTimeout(() => (copyAllBtn.innerHTML = original), 1500);

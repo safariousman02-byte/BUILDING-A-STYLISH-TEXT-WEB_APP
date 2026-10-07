@@ -941,3 +941,75 @@ body {
   transform: none;
   box-shadow: var(--shadow-soft);
 }
+
+.stats-row {
+  /* Lay them out in a row */
+  display: flex;
+
+  /* Small gap between pills */
+  gap: var(--space-sm);
+
+  /* Space below the row */
+  margin-bottom: var(--space-md);
+
+  /* If the row is too wide, allow horizontal scroll */
+  overflow-x: auto;
+
+  /* Small padding so the shadow isn't clipped */
+  padding-bottom: var(--space-xs);
+}
+
+/* -------- Individual pill -------- */
+.stat-pill {
+  /* Don't shrink — let them keep their natural width */
+  flex-shrink: 0;
+
+  /* Small horizontal layout */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  /* Pill shape (fully rounded) */
+  border-radius: var(--r-full);
+
+  /* Padding inside */
+  padding: 10px 16px;
+
+  /* Neomorphic surface color */
+  background: var(--surface-raised);
+
+  /* Raised shadow */
+  box-shadow: var(--shadow-raised);
+
+  /* Text styles */
+  font-size: 12px;
+  font-weight: 500;
+
+  /* Primary color for the number */
+  color: var(--text-primary);
+}
+
+/* -------- Icon inside the pill -------- */
+.stat-pill .icon {
+  /* Smaller icon */
+  font-size: 16px;
+
+  /* Accent color */
+  color: var(--primary);
+
+  /* Align with text baseline */
+  display: flex;
+  align-items: center;
+}
+
+/* -------- The number (bold) -------- */
+.stat-pill .stat-number {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* -------- The label (lighter) -------- */
+.stat-pill .stat-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
