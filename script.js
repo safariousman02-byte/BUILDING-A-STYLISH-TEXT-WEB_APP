@@ -590,6 +590,502 @@ const mapCircled = {
   8: "⑧",
   9: "⑨",
 };
+const mapSmallCaps = {
+  a: "ᴀ",
+  b: "ʙ",
+  c: "ᴄ",
+  d: "ᴅ",
+  e: "ᴇ",
+  f: "ꜰ",
+  g: "ɢ",
+  h: "ʜ",
+  i: "ɪ",
+  j: "ᴊ",
+  k: "ᴋ",
+  l: "ʟ",
+  m: "ᴍ",
+  n: "ɴ",
+  o: "ᴏ",
+  p: "ᴘ",
+  q: "ǫ",
+  r: "ʀ",
+  s: "ꜱ",
+  t: "ᴛ",
+  u: "ᴜ",
+  v: "ᴠ",
+  w: "ᴡ",
+  x: "x",
+  y: "ʏ",
+  z: "ᴢ",
+  // Uppercase stays the same (small caps ARE uppercase)
+  A: "A",
+  B: "B",
+  C: "C",
+  D: "D",
+  E: "E",
+  F: "F",
+  G: "G",
+  H: "H",
+  I: "I",
+  J: "J",
+  K: "K",
+  L: "L",
+  M: "M",
+  N: "N",
+  O: "O",
+  P: "P",
+  Q: "Q",
+  R: "R",
+  S: "S",
+  T: "T",
+  U: "U",
+  V: "V",
+  W: "W",
+  X: "X",
+  Y: "Y",
+  Z: "Z",
+};
+
+// ---- SUPERSCRIPT ----
+// Letters/numbers raised above the baseline.
+const mapSuperscript = {
+  a: "ᵃ",
+  b: "ᵇ",
+  c: "ᶜ",
+  d: "ᵈ",
+  e: "ᵉ",
+  f: "ᶠ",
+  g: "ᵍ",
+  h: "ʰ",
+  i: "ⁱ",
+  j: "ʲ",
+  k: "ᵏ",
+  l: "ˡ",
+  m: "ᵐ",
+  n: "ⁿ",
+  o: "ᵒ",
+  p: "ᵖ",
+  q: "۹",
+  r: "ʳ",
+  s: "ˢ",
+  t: "ᵗ",
+  u: "ᵘ",
+  v: "ᵛ",
+  w: "ʷ",
+  x: "ˣ",
+  y: "ʸ",
+  z: "ᶻ",
+  A: "ᴬ",
+  B: "ᴮ",
+  C: "ᶜ",
+  D: "ᴰ",
+  E: "ᴱ",
+  F: "ᶠ",
+  G: "ᴳ",
+  H: "ᴴ",
+  I: "ᴵ",
+  J: "ᴶ",
+  K: "ᴷ",
+  L: "ᴸ",
+  M: "ᴹ",
+  N: "ᴺ",
+  O: "ᴼ",
+  P: "ᴾ",
+  Q: "Q",
+  R: "ᴿ",
+  S: "ˢ",
+  T: "ᵀ",
+  U: "ᵁ",
+  V: "ⱽ",
+  W: "ᵂ",
+  X: "ˣ",
+  Y: "ʸ",
+  Z: "ᶻ",
+  0: "⁰",
+  1: "¹",
+  2: "²",
+  3: "³",
+  4: "⁴",
+  5: "⁵",
+  6: "⁶",
+  7: "⁷",
+  8: "⁸",
+  9: "⁹",
+};
+
+// ---- SUBSCRIPT ----
+// Letters/numbers lowered below the baseline.
+const mapSubscript = {
+  a: "ₐ",
+  b: "₆",
+  c: "꜀",
+  d: "ᑯ",
+  e: "ₑ",
+  f: "f",
+  g: "₉",
+  h: "ₕ",
+  i: "ᵢ",
+  j: "ⱼ",
+  k: "ₖ",
+  l: "ₗ",
+  m: "ₘ",
+  n: "ₙ",
+  o: "ₒ",
+  p: "ₚ",
+  q: "q",
+  r: "ᵣ",
+  s: "ₛ",
+  t: "ₜ",
+  u: "ᵤ",
+  v: "ᵥ",
+  w: "w",
+  x: "ₓ",
+  y: "ᵧ",
+  z: "z",
+  A: "ₐ",
+  B: "B",
+  C: "C",
+  D: "D",
+  E: "ₑ",
+  F: "F",
+  G: "G",
+  H: "ₕ",
+  I: "ᵢ",
+  J: "ⱼ",
+  K: "ₖ",
+  L: "ₗ",
+  M: "ₘ",
+  N: "ₙ",
+  O: "ₒ",
+  P: "ₚ",
+  Q: "Q",
+  R: "ᵣ",
+  S: "ₛ",
+  T: "ₜ",
+  U: "ᵤ",
+  V: "ᵥ",
+  W: "W",
+  X: "ₓ",
+  Y: "ᵧ",
+  Z: "Z",
+  0: "₀",
+  1: "₁",
+  2: "₂",
+  3: "₃",
+  4: "₄",
+  5: "₅",
+  6: "₆",
+  7: "₇",
+  8: "₈",
+  9: "₉",
+};
+
+// ---- SQUARED ----
+// Each letter inside a square outline.
+const mapSquared = {
+  // Uppercase
+  A: "🄰",
+  B: "🄱",
+  C: "🄲",
+  D: "🄳",
+  E: "🄴",
+  F: "🄵",
+  G: "🄶",
+  H: "🄷",
+  I: "🄸",
+  J: "🄹",
+  K: "🄺",
+  L: "🄻",
+  M: "🄼",
+  N: "🄽",
+  O: "🄾",
+  P: "🄿",
+  Q: "🅀",
+  R: "🅁",
+  S: "🅂",
+  T: "🅃",
+  U: "🅄",
+  V: "🅅",
+  W: "🅆",
+  X: "🅇",
+  Y: "🅈",
+  Z: "🅉",
+  // Lowercase → mapped to uppercase
+  a: "🄰",
+  b: "🄱",
+  c: "🄲",
+  d: "🄳",
+  e: "🄴",
+  f: "🄵",
+  g: "🄶",
+  h: "🄷",
+  i: "🄸",
+  j: "🄹",
+  k: "🄺",
+  l: "🄻",
+  m: "🄼",
+  n: "🄽",
+  o: "🄾",
+  p: "🄿",
+  q: "🅀",
+  r: "🅁",
+  s: "🅂",
+  t: "🅃",
+  u: "🅄",
+  v: "🅅",
+  w: "🅆",
+  x: "🅇",
+  y: "🅈",
+  z: "🅉",
+};
+
+// ---- NEGATIVE SQUARED ----
+// Each letter inside a FILLED square.
+const mapNegSquared = {
+  A: "🅰",
+  B: "🅱",
+  C: "🅲",
+  D: "🅳",
+  E: "🅴",
+  F: "🅵",
+  G: "🅶",
+  H: "🅷",
+  I: "🅸",
+  J: "🅹",
+  K: "🅺",
+  L: "🅻",
+  M: "🅼",
+  N: "🅽",
+  O: "🅾",
+  P: "🅿",
+  Q: "🆀",
+  R: "🆁",
+  S: "🆂",
+  T: "🆃",
+  U: "🆄",
+  V: "🆅",
+  W: "🆆",
+  X: "🆇",
+  Y: "🆈",
+  Z: "🆉",
+  a: "🅰",
+  b: "🅱",
+  c: "🅲",
+  d: "🅳",
+  e: "🅴",
+  f: "🅵",
+  g: "🅶",
+  h: "🅷",
+  i: "🅸",
+  j: "🅹",
+  k: "🅺",
+  l: "🅻",
+  m: "🅼",
+  n: "🅽",
+  o: "🅾",
+  p: "🅿",
+  q: "🆀",
+  r: "🆁",
+  s: "🆂",
+  t: "🆃",
+  u: "🆄",
+  v: "🆅",
+  w: "🆆",
+  x: "🆇",
+  y: "🆈",
+  z: "🆉",
+};
+
+// ---- BOLD CIRCLED ----
+// Filled circles with letters.
+const mapBoldCircled = {
+  A: "🅐",
+  B: "🅑",
+  C: "🅒",
+  D: "🅓",
+  E: "🅔",
+  F: "🅕",
+  G: "🅖",
+  H: "🅗",
+  I: "🅘",
+  J: "🅙",
+  K: "🅚",
+  L: "🅛",
+  M: "🅜",
+  N: "🅝",
+  O: "🅞",
+  P: "🅟",
+  Q: "🅠",
+  R: "🅡",
+  S: "🅢",
+  T: "🅣",
+  U: "🅤",
+  V: "🅥",
+  W: "🅦",
+  X: "🅧",
+  Y: "🅨",
+  Z: "🅩",
+  a: "🅐",
+  b: "🅑",
+  c: "🅒",
+  d: "🅓",
+  e: "🅔",
+  f: "🅕",
+  g: "🅖",
+  h: "🅗",
+  i: "🅘",
+  j: "🅙",
+  k: "🅚",
+  l: "🅛",
+  m: "🅜",
+  n: "🅝",
+  o: "🅞",
+  p: "🅟",
+  q: "🅠",
+  r: "🅡",
+  s: "🅢",
+  t: "🅣",
+  u: "🅤",
+  v: "🅥",
+  w: "🅦",
+  x: "🅧",
+  y: "🅨",
+  z: "🅩",
+};
+
+// ---- PARENTHESIZED ----
+// Letters inside parentheses.
+const mapParenthesized = {
+  a: "⒜",
+  b: "⒝",
+  c: "⒞",
+  d: "⒟",
+  e: "⒠",
+  f: "⒡",
+  g: "⒢",
+  h: "⒣",
+  i: "⒤",
+  j: "⒥",
+  k: "⒦",
+  l: "⒧",
+  m: "⒨",
+  n: "⒩",
+  o: "⒪",
+  p: "⒫",
+  q: "⒬",
+  r: "⒭",
+  s: "⒮",
+  t: "⒯",
+  u: "⒰",
+  v: "⒱",
+  w: "⒲",
+  x: "⒳",
+  y: "⒴",
+  z: "⒵",
+  A: "🄐",
+  B: "🄑",
+  C: "🄒",
+  D: "🄓",
+  E: "🄔",
+  F: "🄕",
+  G: "🄖",
+  H: "🄗",
+  I: "🄘",
+  J: "🄙",
+  K: "🄚",
+  L: "🄛",
+  M: "🄜",
+  N: "🄝",
+  O: "🄞",
+  P: "🄟",
+  Q: "🄠",
+  R: "🄡",
+  S: "🄢",
+  T: "🄣",
+  U: "🄤",
+  V: "🄥",
+  W: "🄦",
+  X: "🄧",
+  Y: "🄨",
+  Z: "🄩",
+  1: "⑴",
+  2: "⑵",
+  3: "⑶",
+  4: "⑷",
+  5: "⑸",
+  6: "⑹",
+  7: "⑺",
+  8: "⑻",
+  9: "⑼",
+  0: "⑽",
+};
+
+// ---- FULLWIDTH ----
+// Letters spaced very wide (Japanese style).
+const mapFullwidth = {
+  a: "ａ",
+  b: "ｂ",
+  c: "ｃ",
+  d: "ｄ",
+  e: "ｅ",
+  f: "ｆ",
+  g: "ｇ",
+  h: "ｈ",
+  i: "ｉ",
+  j: "ｊ",
+  k: "ｋ",
+  l: "ｌ",
+  m: "ｍ",
+  n: "ｎ",
+  o: "ｏ",
+  p: "ｐ",
+  q: "ｑ",
+  r: "ｒ",
+  s: "ｓ",
+  t: "ｔ",
+  u: "ｕ",
+  v: "ｖ",
+  w: "ｗ",
+  x: "ｘ",
+  y: "ｙ",
+  z: "ｚ",
+  A: "Ａ",
+  B: "Ｂ",
+  C: "Ｃ",
+  D: "Ｄ",
+  E: "Ｅ",
+  F: "Ｆ",
+  G: "Ｇ",
+  H: "Ｈ",
+  I: "Ｉ",
+  J: "Ｊ",
+  K: "Ｋ",
+  L: "Ｌ",
+  M: "Ｍ",
+  N: "Ｎ",
+  O: "Ｏ",
+  P: "Ｐ",
+  Q: "Ｑ",
+  R: "Ｒ",
+  S: "Ｓ",
+  T: "Ｔ",
+  U: "Ｕ",
+  V: "Ｖ",
+  W: "Ｗ",
+  X: "Ｘ",
+  Y: "Ｙ",
+  Z: "Ｚ",
+  0: "０",
+  1: "１",
+  2: "２",
+  3: "３",
+  4: "４",
+  5: "５",
+  6: "６",
+  7: "７",
+  8: "８",
+  9: "９",
+};
 
 // ============================================================
 // TEXT CONVERTERS
@@ -623,9 +1119,6 @@ function toTitleCase(text) {
   );
 }
 
-// ============================================================
-// FONTS ARRAY
-// ============================================================
 const styles = [
   // ============ UNICODE-STYLED (COPYABLE) ============
   { name: "Bold", css: "'Inter', sans-serif", italic: false, map: mapBold },
@@ -671,6 +1164,54 @@ const styles = [
     css: "'Inter', sans-serif",
     italic: false,
     map: mapCircled,
+  },
+  {
+    name: "Small Caps",
+    css: "'Inter', sans-serif",
+    italic: false,
+    map: mapSmallCaps,
+  },
+  {
+    name: "Superscript",
+    css: "'Inter', sans-serif",
+    italic: false,
+    map: mapSuperscript,
+  },
+  {
+    name: "Subscript",
+    css: "'Inter', sans-serif",
+    italic: false,
+    map: mapSubscript,
+  },
+  {
+    name: "Squared",
+    css: "'Inter', sans-serif",
+    italic: false,
+    map: mapSquared,
+  },
+  {
+    name: "Negative Squared",
+    css: "'Inter', sans-serif",
+    italic: false,
+    map: mapNegSquared,
+  },
+  {
+    name: "Bold Circled",
+    css: "'Inter', sans-serif",
+    italic: false,
+    map: mapBoldCircled,
+  },
+  {
+    name: "Parenthesized",
+    css: "'Inter', sans-serif",
+    italic: false,
+    map: mapParenthesized,
+  },
+  {
+    name: "Fullwidth",
+    css: "'Inter', sans-serif",
+    italic: false,
+    map: mapFullwidth,
   },
 
   // ============ ELEGANT SERIF ============
@@ -731,6 +1272,19 @@ const styles = [
     map: null,
   },
   { name: "Lora", css: "'Lora', serif", italic: false, map: null },
+  {
+    name: "Instrument Serif",
+    css: "'Instrument Serif', serif",
+    italic: false,
+    map: null,
+  },
+  {
+    name: "Instrument Serif Italic",
+    css: "'Instrument Serif', serif",
+    italic: true,
+    map: null,
+  },
+  { name: "Tan Pearl", css: "'Tan Pearl', serif", italic: false, map: null },
 
   // ============ BEAUTIFUL SCRIPTS ============
   {
@@ -861,6 +1415,13 @@ const styles = [
     italic: false,
     map: null,
   },
+  { name: "Anybody", css: "'Anybody', sans-serif", italic: false, map: null },
+  {
+    name: "Anybody Expanded",
+    css: "'Anybody', sans-serif",
+    italic: false,
+    map: null,
+  },
 
   // ============ BOLD DISPLAY ============
   { name: "Anton", css: "'Anton', sans-serif", italic: false, map: null },
@@ -920,6 +1481,24 @@ const styles = [
     italic: false,
     map: null,
   },
+  {
+    name: "Geist Pixel",
+    css: "'Geist Pixel', monospace",
+    italic: false,
+    map: null,
+  },
+  {
+    name: "TASA Orbitor",
+    css: "'TASA Orbitor', sans-serif",
+    italic: false,
+    map: null,
+  },
+  {
+    name: "TASA Explorer",
+    css: "'TASA Explorer', sans-serif",
+    italic: false,
+    map: null,
+  },
 
   // ============ GOTHIC / ARCHIVAL ============
   {
@@ -964,6 +1543,7 @@ const styles = [
     italic: false,
     map: null,
   },
+  { name: "Geomini", css: "'Geomini', sans-serif", italic: false, map: null },
 
   // ============ QUIRKY / UNIQUE ============
   {
@@ -1068,6 +1648,23 @@ const styles = [
     italic: false,
     map: null,
   },
+
+  // ============ CRAZY 2026 FONTS ============
+  { name: "Tilt Neon", css: "'Tilt Neon', cursive", italic: false, map: null },
+  {
+    name: "Tilt Prism",
+    css: "'Tilt Prism', cursive",
+    italic: false,
+    map: null,
+  },
+  { name: "Tilt Warp", css: "'Tilt Warp', cursive", italic: false, map: null },
+  {
+    name: "Kalnia Glaze",
+    css: "'Kalnia Glaze', serif",
+    italic: false,
+    map: null,
+  },
+  { name: "Datatype", css: "'Datatype', monospace", italic: false, map: null },
 ];
 
 // ============================================================
@@ -1110,10 +1707,14 @@ function generateFontText(text) {
 
     // Inside generateFontText, after creating the card:
 
-    const heartBtn = card.querySelector(".heart-btn");
-    heartBtn.addEventListener("click", () => {
-      toggleSave(text, style, heartBtn);
+    const starBtn = card.querySelector(".heart-btn");
+    starBtn.addEventListener("click", () => {
+      toggleSave(text, style, starBtn);
     });
+
+    if (isFontSaved(text, style.name)) {
+      starBtn.classList.add("saved");
+    }
 
     fontList.appendChild(card);
   });
@@ -1377,52 +1978,50 @@ if (copyAllBtn) {
   });
 }
 
-// ============================================================
-// SAVE TO COLLECTION
-// ============================================================
-
 function getSavedFonts() {
-  const saved = localStorage.getItem("glyphSavedFonts");
+  const saved = localStorage.getItem("savedArray");
   return saved ? JSON.parse(saved) : [];
 }
 
 function saveFonts(fonts) {
-  localStorage.setItem("glyphSavedFonts", JSON.stringify(fonts));
+  localStorage.setItem("savedArray", JSON.stringify(fonts));
 }
 
 function isFontSaved(text, styleName) {
   const saved = getSavedFonts();
+
   return saved.some((f) => f.text === text && f.styleName === styleName);
 }
 
-function toggleSave(text, style, heartBtn) {
+function toggleSave(text, style, starBtn) {
   let saved = getSavedFonts();
-  const exists = saved.findIndex(
+
+  const index = saved.findIndex(
     (f) => f.text === text && f.styleName === style.name,
   );
 
-  if (exists > -1) {
-    // Remove
-    saved.splice(exists, 1);
-    heartBtn.classList.remove("saved");
+  if (index > -1) {
+    saved.splice(index, 1);
+    starBtn.classList.remove("saved");
   } else {
-    // Add
     const converted = style.map ? convertText(text, style.map) : text;
+
     saved.push({
-      id: Date.now(),
-      text: text,
-      converted: converted,
-      styleName: style.name,
-      css: style.css,
-      italic: style.italic,
-      savedAt: new Date().toISOString(),
+      id: Date.now(), // unique ID (current time in ms)
+      text: text, // original text the user typed
+      converted: converted, // Unicode-styled version
+      styleName: style.name, // e.g. "Bold"
+      css: style.css, // e.g. "'Inter', sans-serif"
+      italic: style.italic, // true or false
+      savedAt: new Date().toISOString(), // for "2m ago" later
     });
-    heartBtn.classList.add("saved");
+    starBtn.classList.add("saved");
   }
 
   saveFonts(saved);
 
-  // Feedback animation
-  heartBtn.style.transform = "scale(1.3)";
-  setTimeout(() => (heartBtn.style.transform = "scale(1)"), 200);
+  starBtn.style.transform = "scale(1.3)";
+  setTimeout(() => {
+    starBtn.style.transform = "scale(1)";
+  }, 200);
 }

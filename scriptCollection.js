@@ -1,6 +1,3 @@
-// ============================================================
-// THEME MANAGER (same as other pages)
-// ============================================================
 const themeToggle = document.getElementById("themeToggle");
 
 function getTheme() {
@@ -28,132 +25,169 @@ if (themeToggle) {
   });
 }
 
-// ============================================================
-// LOAD SAVED FONTS
-// ============================================================
 const savedList = document.getElementById("savedList");
-const emptyState = document.getElementById("emptyState");
-const searchInput = document.getElementById("searchInput");
 
 function getSavedFonts() {
-  const saved = localStorage.getItem("glyphSavedFonts");
+  const saved = localStorage.getItem("savedArray");
   return saved ? JSON.parse(saved) : [];
 }
 
 function saveFonts(fonts) {
-  localStorage.setItem("glyphSavedFonts", JSON.stringify(fonts));
+  localStorage.setItem("savedArray", JSON.stringify(fonts));
 }
 
-function renderSaved(filter = "") {
-  const fonts = getSavedFonts().filter((f) =>
-    f.text.toLowerCase().includes(filter.toLowerCase()),
-  );
+function timeAgo(iso) {
+  // 1. How many seconds have passed since that time?
+  const seconds = Math.floor((Date.now() - new Date(iso)) / 1000);
+
+  // 2. Return the biggest unit that fits.
+  if (seconds < 60) return "just now";
+
+  const mins = Math.floor(seconds / 60);
+  if (mins < 60) return `${mins}m ago`;
+
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+
+  return `${Math.floor(hrs / 24)}d ago`;
+}
+
+function renderSaved() {
+  const saved = getSavedFonts();
 
   savedList.innerHTML = "";
 
-  if (fonts.length === 0) {
-    emptyState.style.display = "block";
+  if (saved.length === 0) {
+    savedList.innerHTML = `
+        <div class="empty-state">
+            <span class="material-symbols-outlined">bookmark_border</span>
+            <h3>No saved fonts yet!..</h3>
+            <p>Tap the star on the font card to save it here.</p>
+        </div>
+    `;
+
+    const exportBtn = document.querySelector(".exportBtn");
+    const clearBtn = document.querySelector(".clearBtn");
+    if (exportBtn) exportBtn.disabled = true;
+    if (clearBtn) clearBtn.disabled = true;
+
     return;
   }
 
-  emptyState.style.display = "none";
-
-  fonts.forEach((font) => {
+  saved.forEach((item) => {
     const card = document.createElement("div");
     card.className = "saved-card";
 
     card.innerHTML = `
-      <div class="saved-tags">
-        <span class="tag">${font.styleName}</span>
-        <span class="tag">Saved ${timeAgo(font.savedAt)}</span>
-      </div>
+        <div class="saved-tags">
+            <span class="tag">${item.styleName}</span>
+            <span class="tag">Saved ${timeAgo(item.savedAt)}</span>
+        </div>
 
-      <h3>${font.text}</h3>
+        <h3>${item.styleName}</h3>
 
-      <div class="saved-preview" style="font-family: ${font.css}; font-style: ${font.italic ? "italic" : "normal"};">
-        ${font.converted}
-      </div>
-
-      <div class="saved-actions">
-        <button class="copy-saved" data-id="${font.id}">
-          <span class="material-symbols-outlined">content_copy</span>
-          1-Tap Copy
+        <div class="saved-preview" style="font-family: ${item.css}; font-style: ${item.italic ? "italic" : "normal"};">
+        ${item.converted}
+      </div> 
+        
+        <div class="saved-actions">
+            <button class="copy-saved">
+            <span class="material-symbols-outlined">content_copy</span>
+            1-Tap copy
         </button>
-        <button class="icon-btn share-saved">
-          <span class="material-symbols-outlined">ios_share</span>
+        <button class="icon-btn delete-saved">
+            <span class="material-symbols-outlined">delete</span>
         </button>
-        <button class="icon-btn duplicate-saved">
-          <span class="material-symbols-outlined">content_copy</span>
-        </button>
-        <button class="icon-btn delete-saved" data-id="${font.id}">
-          <span class="material-symbols-outlined">delete</span>
-        </button>
-      </div>
+        </div>
+      
     `;
 
-    // Copy button
-    card.querySelector(".copy-saved").addEventListener("click", (e) => {
-      copySaved(font.converted, e.currentTarget);
+    const copyBtn = card.querySelector(".copy-saved");
+    copyBtn.addEventListener("click", () => {
+      copySaved(item.converted, copyBtn);
     });
 
-    // Delete button
-    card.querySelector(".delete-saved").addEventListener("click", (e) => {
-      deleteSaved(font.id, e.currentTarget);
+    const exportBtn = document.querySelector(".exportBtn");
+    const clearBtn = document.querySelector(".clearBtn");
+    if (exportBtn) exportBtn.disabled = false;
+    if (clearBtn) clearBtn.disabled = false;
+
+    const deleteBtn = card.querySelector(".delete-saved");
+    deleteBtn.addEventListener("click", () => {
+      deleteSaved(item.id);
     });
 
     savedList.appendChild(card);
   });
 }
 
-// ============================================================
-// ACTIONS
-// ============================================================
 async function copySaved(text, btn) {
   try {
     await navigator.clipboard.writeText(text);
     const original = btn.innerHTML;
-    btn.innerHTML = `<span class="material-symbols-outlined">check</span> Copied!`;
-    setTimeout(() => (btn.innerHTML = original), 1500);
+    btn.innerHTML = `
+            <span class="material-symbols-outlined">check</span>
+            Copied!
+        `;
+
+    setTimeout(() => {
+      btn.innerHTML = original;
+    }, 1500);
   } catch (err) {
-    console.error("Copy failed:", err);
+    console.log("Copy failed: ", err);
   }
 }
 
-function deleteSaved(id, btn) {
-  if (!confirm("Remove this font from your collection?")) return;
+function deleteSaved(id) {
+  let saved = getSavedFonts();
 
-  let fonts = getSavedFonts();
-  fonts = fonts.filter((f) => f.id !== id);
+  saved = saved.filter((f) => f.id !== id);
+
   saveFonts(fonts);
 
-  // Animate out
-  btn.closest(".saved-card").style.opacity = "0";
-  btn.closest(".saved-card").style.transform = "scale(0.95)";
-
-  setTimeout(() => renderSaved(searchInput.value), 200);
+  renderSaved();
 }
+renderSaved();
 
-function timeAgo(iso) {
-  const seconds = Math.floor((Date.now() - new Date(iso)) / 1000);
-  if (seconds < 60) return "just now";
-  const mins = Math.floor(seconds / 60);
-  if (mins < 60) return `${mins}m ago`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs}h ago`;
-  const days = Math.floor(hrs / 24);
-  return `${days}d ago`;
-}
+const exportBtn = document.querySelector(".exportBtn");
 
-// ============================================================
-// SEARCH
-// ============================================================
-if (searchInput) {
-  searchInput.addEventListener("input", (e) => {
-    renderSaved(e.target.value);
+if (exportBtn) {
+  exportBtn.addEventListener("click", () => {
+    const saved = getSavedFonts();
+
+    if (saved.length === 0) {
+      alert("Nothing to export!..");
+      return;
+    }
+
+    const jsonText = JSON.stringify(saved, null, 2);
+    const blob = new Blob([jsonText], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `glyph-and-silk-${Date.now()}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
   });
 }
 
-// ============================================================
-// INIT
-// ============================================================
-renderSaved();
+const clearBtn = document.querySelector(".clearBtn");
+
+if (clearBtn) {
+  clearBtn.addEventListener("click", () => {
+    if (
+      !confirm(
+        "This action will clear all your history? Do you want to proceed!..",
+      )
+    ) {
+      return;
+    }
+
+    localStorage.removeItem("savedArray");
+    renderSaved();
+  });
+}
+
+console.log(localStorage.length);

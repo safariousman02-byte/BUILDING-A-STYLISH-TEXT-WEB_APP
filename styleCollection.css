@@ -649,9 +649,7 @@ body {
   color: var(--primary);
   font-weight: 600;
 }
-/* ============================================================
-   TITLE
-   ============================================================ */
+
 .title-section {
   margin-bottom: var(--space-md);
 }
@@ -835,4 +833,111 @@ body {
 
 .search-bar input::placeholder {
   color: var(--text-tertiary);
+}
+
+.expAndClear {
+  /* Flex layout: buttons side by side */
+  display: flex;
+  gap: var(--space-sm);
+
+  /* Space above and below the container */
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+/* -------- Shared button styles -------- */
+.exportBtn,
+.clearBtn {
+  /* Each button takes equal width */
+  flex: 1;
+
+  /* Text + icon stacked horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  /* Neomorphic surface — same color as parent (required!) */
+  background: var(--surface-raised);
+
+  /* No borders — they break neomorphism */
+  border: none;
+
+  /* Rounded corners */
+  border-radius: var(--r-md);
+
+  /* Padding inside the button */
+  padding: 12px 14px;
+
+  /* Font — inherit from the page */
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  /* Cursor feedback */
+  cursor: pointer;
+
+  /* Raised shadow (floating up from the surface) */
+  box-shadow: var(--shadow-raised);
+
+  /* Smooth transition for the press animation */
+  transition: all 0.15s ease;
+}
+
+/* -------- Export button — accent color (indigo) -------- */
+.exportBtn {
+  color: var(--primary);
+}
+
+/* -------- Clear button — danger color (red) -------- */
+.clearBtn {
+  color: var(--danger);
+}
+
+/* -------- Press effect (both) -------- */
+.exportBtn:active,
+.clearBtn:active {
+  /* Inset shadow = pushed into the surface */
+  box-shadow: var(--shadow-inset);
+
+  /* Slight scale down for a tactile feel */
+  transform: scale(0.98);
+}
+
+/* -------- Optional: hover glow on desktop -------- */
+.exportBtn:hover,
+.clearBtn:hover {
+  /* Soft inner glow */
+  box-shadow: var(--shadow-inset);
+}
+
+/* -------- Icons inside the buttons -------- */
+.exportBtn .material-symbols-outlined,
+.clearBtn .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.exportBtn:disabled,
+.clearBtn:disabled {
+  /* Grey out the text */
+  color: var(--text-tertiary);
+
+  /* Reduce overall opacity */
+  opacity: 0.5;
+
+  /* Remove the pointer cursor (use default arrow) */
+  cursor: not-allowed;
+
+  /* Slight change to shadow so it feels "flatter" */
+  box-shadow: var(--shadow-soft);
+
+  /* Remove hover/press effect */
+  transform: none;
+}
+
+/* Prevent the press animation on disabled buttons */
+.exportBtn:disabled:active,
+.clearBtn:disabled:active {
+  transform: none;
+  box-shadow: var(--shadow-soft);
 }

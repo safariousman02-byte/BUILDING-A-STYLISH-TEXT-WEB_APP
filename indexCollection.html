@@ -5,65 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Glyph & Silk - Collection</title>
     <link rel="stylesheet" href="styleCollection.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Alfa+Slab+One&family=Allura&family=Almendra&family=Amatic+SC&family=Anton&family=Anybody:wght@400;700&family=Architects+Daughter&family=Archivo+Black&family=Audiowide&family=Baloo+2&family=Bebas+Neue&family=Bodoni+Moda:ital@0;1&family=Bowlby+One&family=Bubblegum+Sans&family=Bungee&family=Bungee+Inline&family=Bungee+Outline&family=Bungee+Shade&family=Butcherman&family=Caveat&family=Chewy&family=Cinzel&family=Cinzel+Decorative&family=Codystar&family=Cormorant+Garamond:ital@0;1&family=Creepster&family=DM+Serif+Display:ital@0;1&family=Dancing+Script&family=Datatype&family=Faster+One&family=Fira+Code&family=Freckle+Face&family=Geist+Pixel&family=Geomini&family=Great+Vibes&family=Indie+Flower&family=Instrument+Serif:ital@0;1&family=Inter&family=Italianno&family=JetBrains+Mono&family=Josefin+Sans&family=Julius+Sans+One&family=Kalnia+Glaze&family=Kalam&family=Kranky&family=Major+Mono+Display&family=Metal+Mania&family=Metamorphous&family=Michroma&family=Miltonian&family=Mochiy+Pop+One&family=Modak&family=Monoton&family=Mrs+Saint+Delafield&family=Nanum+Pen+Script&family=Nosifer&family=Nova+Mono&family=Orbitron&family=Outfit&family=Parisienne&family=Passero+One&family=Pinyon+Script&family=Pirata+One&family=Playfair+Display:ital@0;1&family=Poiret+One&family=Prata&family=Righteous&family=Rubik+Glitch&family=Rubik+Moonrocks&family=Sacramento&family=Shadows+Into+Light&family=Silkscreen&family=Sniglet&family=Sora&family=Space+Grotesk&family=Space+Mono&family=Stardos+Stencil&family=Syncopate&family=Syne&family=TASA+Explorer&family=TASA+Orbitor&family=Tan+Pearl&family=Tangerine&family=Tilt+Neon&family=Tilt+Prism&family=Tilt+Warp&family=Unbounded&family=UnifrakturMaguntia&family=Varela+Round&family=Wallpoet&family=Zen+Dots&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500&family=Dancing+Script:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div class="app">
-      <!-- HEADER -->
       <header class="header">
         <div class="header-left">
           <div class="logo">TT</div>
           <div>
             <h1>Glyph & Silk</h1>
-            <p>Typography Studio</p>
+            <p>Collection</p>
           </div>
         </div>
         <div class="header-right">
           <button class="theme-btn" id="themeToggle">
             <span class="material-symbols-outlined">dark_mode</span>
           </button>
-          <div class="avatar">
-            <span class="material-symbols-outlined">person</span>
-          </div>
         </div>
       </header>
 
-      <!-- TITLE -->
       <div class="title-section">
         <h2>Collection & Vault</h2>
-        <p class="subtitle">Your saved typography recipes, ready to copy.</p>
+        <p class="subtitle">Testing page — nothing here yet.</p>
       </div>
 
-      <!-- SEARCH -->
-      <div class="search-bar">
-        <span class="material-symbols-outlined search-icon">search</span>
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search saved fonts..."
-        />
-      </div>
-
-      <!-- SAVED LIST (populated by JS) -->
+      <!-- This is where we'll build the list -->
       <div class="saved-list" id="savedList"></div>
-
-      <!-- EMPTY STATE -->
-      <div class="empty-state" id="emptyState" style="display: none">
-        <span class="material-symbols-outlined">bookmark_border</span>
-        <h3>No saved fonts yet</h3>
-        <p>Tap the ♡ on any font card to save it here.</p>
+      <div class="expAndClear">
+        <button class="exportBtn">
+          <span class="material-symbols-outlined"> file_export </span>
+          Export All(JSON)
+        </button>
+        <button class="clearBtn">
+          <span class="material-symbols-outlined"> delete_forever </span>
+          Clear History
+        </button>
       </div>
 
-      <!-- BOTTOM NAV -->
       <nav class="bottom-nav">
         <a href="index.html" class="nav-item">
           <span><span class="material-symbols-outlined">atr</span></span>
